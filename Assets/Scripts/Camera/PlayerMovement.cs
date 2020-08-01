@@ -47,13 +47,8 @@ public class PlayerMovement : MonoBehaviour
        
         controller.Move(velocity * Time.deltaTime);
 
-        if (isKeyDown)
-        {
-            animator.SetBool("walking", true);
-        }
-        else {
-            animator.SetBool("walking", false);
-        }
+       animator.SetBool("walkingUp", z > 0);
+       animator.SetBool("walking", isKeyDown);
        
 
     }
