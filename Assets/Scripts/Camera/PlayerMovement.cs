@@ -16,7 +16,8 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 velocity;
     private bool grounded = false;
-
+    private NpcDialogue nearNpc = null;
+    private bool _isNearNpc = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,7 +51,17 @@ public class PlayerMovement : MonoBehaviour
        animator.SetBool("walkingUp", z > 0);
        animator.SetBool("walking", isKeyDown);
        
+       if (_isNearNpc)
+       {
+           float distZ = this.transform.position.z - nearNpc.transform.position.z;
+           animator.SetBool("walkingUp", distZ < 0);
+       }
+    }
 
+    public void isNearNpc(NpcDialogue npc)
+    {
+        nearNpc = npc;
+        _isNearNpc = npc != null;
     }
 
     private Vector3 vecInPix = new Vector3();
