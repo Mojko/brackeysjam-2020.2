@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class SliderContainer : MonoBehaviour
 {
-    public SmoothSlider smoothSlider;
     public TimestampText timestampText;
 
     private void Start()
     {
-        smoothSlider.OnSlide += new SmoothSlider.SlideEvent(timestampText.onSmoothSliderSlide);
+        SmoothSlider.OnSlide += new SmoothSlider.SlideEvent(timestampText.onSmoothSliderSlide);
     }
 }

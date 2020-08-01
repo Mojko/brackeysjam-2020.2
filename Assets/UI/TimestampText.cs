@@ -14,6 +14,7 @@ public class TimestampText : TextMeshProUGUI
         this.lerp = true;
         this.from = int.Parse(this.text);
         this.to = timestamp.timestamp;
+        TimestampSingleton.Instance.currentTime = timestamp.timestamp;
     }
 
     private void Update()

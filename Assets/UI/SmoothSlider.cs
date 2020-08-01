@@ -8,7 +8,7 @@ using TMPro;
 public class SmoothSlider : MonoBehaviour
 {
     public delegate void SlideEvent(Timestamp timestamp);
-    public event SlideEvent OnSlide;
+    public static event SlideEvent OnSlide;
 
     public RectTransform handleRect;
     public Timestamp[] timestamps;
