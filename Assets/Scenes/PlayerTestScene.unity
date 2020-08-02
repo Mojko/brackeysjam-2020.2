@@ -1240,6 +1240,7 @@ GameObject:
   - component: {fileID: 1213867474}
   - component: {fileID: 1213867475}
   - component: {fileID: 1213867477}
+  - component: {fileID: 1213867478}
   m_Layer: 0
   m_Name: npc
   m_TagString: Untagged
@@ -1307,6 +1308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 2
   manager: {fileID: 1213867477}
+  name: Stefan
 --- !u!4 &1213867476
 Transform:
   m_ObjectHideFlags: 0
@@ -1335,7 +1337,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72336e5b9c1267c4194b75cf30b3d160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entry: {fileID: 2398922925393304154, guid: d112331ff81ec6a4e91abe170a1fa970, type: 3}
+  entry: {fileID: 1213867478}
+--- !u!114 &1213867478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213867473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 893e17250567da44ba03b10961fe9c50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1219568522
 GameObject:
   m_ObjectHideFlags: 0
@@ -2166,6 +2180,7 @@ GameObject:
   - component: {fileID: 2047355807}
   - component: {fileID: 2047355806}
   - component: {fileID: 2047355805}
+  - component: {fileID: 2047355809}
   m_Layer: 5
   m_Name: DialogueEntryCanvas
   m_TagString: DialogueEntryCanvas
@@ -2252,6 +2267,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &2047355809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047355804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46a925985876e694b94680b9384af5a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yesNoPrefab: {fileID: 1935772475202537067, guid: 29295ef2994ccb5499f16ba686cb31f2, type: 3}
+  continuePrefab: {fileID: 8906777845311639632, guid: dd89f760ad26c344889dd32704b450f3, type: 3}
 --- !u!1 &2098853125
 GameObject:
   m_ObjectHideFlags: 0

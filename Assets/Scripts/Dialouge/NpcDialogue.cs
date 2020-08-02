@@ -9,8 +9,9 @@ public class NpcDialogue : MonoBehaviour
 
     public float rotationSpeed = 2;
     public DialogueManager manager;
+    public string name = "Unamed";
     
-    
+    private bool inDialogue = false;
     private Vector3 startForward;
     // Start is called before the first frame update
     void Start()
@@ -54,8 +55,13 @@ public class NpcDialogue : MonoBehaviour
 
     public void onDialogueBegin()
     {
+        if (inDialogue) return;
+        inDialogue = true;
         print("BEGINNING DIALOGUE");
-        manager.showDialogue("Dialogue Start here dude!");
+        manager.showDialogue(name,() =>
+        {
+            inDialogue = false;
+        });
     }
 
 }

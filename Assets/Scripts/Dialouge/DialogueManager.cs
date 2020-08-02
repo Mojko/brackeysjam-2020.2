@@ -1,18 +1,15 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DialogueManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    public DialogueEntry entry;
-
-    private DialogueEntry instance;
+    public Dialogue entry;
     
     void Start()
     {
-        instance = entry.setup(GameObject.FindGameObjectWithTag("DialogueEntryCanvas"));
-        this.instance.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -20,10 +17,10 @@ public class DialogueManager : MonoBehaviour
     {
         
     }
+    
 
-    public void showDialogue(string text)
+    public void showDialogue(string npcName, Action action)
     {
-        this.instance.setText(text);
-        this.instance.gameObject.SetActive(true);
+        entry.setupDialogue(npcName, action);
     }
 }
