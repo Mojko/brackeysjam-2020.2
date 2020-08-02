@@ -73,4 +73,9 @@ public class InteractorShower : MonoBehaviour
             onInteraction.Invoke();
         }
     }
+
+    private void OnDestroy()
+    {
+        Destroy(this.instance);
+    }
 }

@@ -10,6 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ea6fa1f4ef4e4f4f960ca4d95bc29fb, type: 3}
-  m_Name: Mushroom
+  m_Name: Nut
   m_EditorClassIdentifier: 
-  uiImage: {fileID: 2800000, guid: 3ebb623c84c38224e83426cbb0d7e413, type: 3}
+  uiImage: {fileID: 2800000, guid: 059e3bb860a82a949a4cca9791cc21ae, type: 3}
+  itemType: 1
+  spawnOnGroundOnDrop: 1
+  objectToSpawnOnGround: {fileID: 6101871797933241048, guid: 8fe94d9396f99454da6efda2887053f0, type: 3}

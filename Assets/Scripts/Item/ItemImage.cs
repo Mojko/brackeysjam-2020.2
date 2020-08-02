@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ItemImage : MonoBehaviour
 {
-    public ItemData item;
+    [HideInInspector] public ItemData item;
     private RawImage rawImage;
 
     private void Start()

@@ -6,4 +6,14 @@ using UnityEngine;
 public class ItemData : ScriptableObject
 {
     public Texture uiImage;
+    public ItemType itemType;
+
+    public bool spawnOnGroundOnDrop;
+    public GameObject objectToSpawnOnGround;
+}
+
+public enum ItemType
+{
+    EMPTY,
+    NUT
 }
