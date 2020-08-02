@@ -6,15 +6,15 @@ using UnityEngine.UI;
 
 public class ContinueDialogueBox : MonoBehaviour
 {
-
-    public Button continueBtn;
-
+    
     public Text textField;
     
     public Text nameField;
     
     private ContinueDialogueBox instance;
 
+    private Action callback;
+    
     public void setup()
     {
         Transform parent = GameObject.FindGameObjectWithTag("DialogueEntryCanvas").transform;
@@ -35,11 +35,16 @@ public class ContinueDialogueBox : MonoBehaviour
         this.instance.gameObject.SetActive(true);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            this.callback();
+        }
+    }
+
     public void onClick(Action callback)
     {
-        instance.continueBtn.onClick.AddListener(()=> {
-            instance.continueBtn.onClick.RemoveAllListeners();
-            callback();
-        });
+        this.instance.callback = callback;
     }
 }
