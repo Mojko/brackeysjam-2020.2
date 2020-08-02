@@ -16,14 +16,14 @@ public class RiverDialogue : Dialogue
         }
         else if(type == ItemType.NUT)
         {
-            await this.showContinue("Hmm, this item wont work. it's a nut...");
+            await this.showContinue("Hmm, this nut wont work. are you nuts?");
         }
         else if(type == ItemType.SAW)
         {
             await this.showContinue("This item should work...");
             openenerAnimator.startAnimation();
             shower.disable();
-
+            GetComponent<AudioSource>().Play();
         }
         else
         {

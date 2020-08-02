@@ -33,6 +33,6 @@ public class PlayerSingleton : MonoBehaviour
     public ItemData CurrentEquippedItem
     {
         get { return currentEquippedItem;  }
-        set { OnItemChanged.Invoke(value); currentEquippedItem = value;  }
+        set { if (this.GetCurrentEquippedItemType() != ItemType.EMPTY && value.itemType != ItemType.EMPTY) { ZToDrop.Instance.DropItem(); } OnItemChanged.Invoke(value); currentEquippedItem = value;  }
     }
 }
