@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiImage: {fileID: 2800000, guid: 866a91d2c2cce3345a0345196f47a8bb, type: 3}
   itemType: 3
-  spawnOnGroundOnDrop: 0
-  objectToSpawnOnGround: {fileID: 0}
+  spawnOnGroundOnDrop: 1
+  objectToSpawnOnGround: {fileID: 1943269719867678913, guid: a018ea7903712a644a7967fc2e1fa611, type: 3}

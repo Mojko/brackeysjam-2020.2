@@ -4,14 +4,9 @@ using UnityEngine;
 
 public class TimestampSingleton
 {
-    private static TimestampSingleton instance;
+    private static TimestampSingleton instance = new TimestampSingleton();
 
     public int currentTime;
-
-    public TimestampSingleton()
-    {
-        instance = new TimestampSingleton();
-    }
 
     public static TimestampSingleton Instance => instance;
 }
