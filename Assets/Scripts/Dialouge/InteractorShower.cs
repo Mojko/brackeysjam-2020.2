@@ -25,6 +25,7 @@ public class InteractorShower : MonoBehaviour
     private Text textField;
     private KeyCode keyCode;
     private bool inRange = false;
+    private bool disabled = false;
 
     public UnityEvent<bool> onVisible;
     public UnityEvent onInteraction;
@@ -49,6 +50,7 @@ public class InteractorShower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (disabled) return;
         if (!inRange && checkInRange())
         {
             inRange = true;
@@ -77,5 +79,11 @@ public class InteractorShower : MonoBehaviour
     private void OnDestroy()
     {
         Destroy(this.instance);
+    }
+
+    public void disable()
+    {
+        disabled = true;
+        this.instance.SetActive(false);
     }
 }
