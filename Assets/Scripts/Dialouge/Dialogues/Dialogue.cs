@@ -38,7 +38,8 @@ public class Dialogue : MonoBehaviour
 
     public void end()
     {
-        this.activeView.SetActive(false);
+        if(this.activeView != null)
+            this.activeView.SetActive(false);
         this.activeView = null;
         callbackWhenDone.Invoke();
     }
