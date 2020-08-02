@@ -1,11 +1,25 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerSingleton : MonoBehaviour
 {
-    private static PlayerSingleton instance = new PlayerSingleton();
+    private static PlayerSingleton instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
+    public Player gameObjectInstance;
+    
     public static PlayerSingleton Instance => instance;
+
+    public Player getGameObject()
+    {
+        return gameObjectInstance;
+    }
 
     public delegate void ItemChangedEvent(ItemData to);
     public static event ItemChangedEvent OnItemChanged;
