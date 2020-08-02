@@ -11,6 +11,7 @@ public class TimestampText : TextMeshProUGUI
 
     public void onSmoothSliderSlide(Timestamp timestamp)
     {
+        print("timestamp: " + timestamp);
         this.lerp = true;
         this.from = int.Parse(this.text);
         this.to = timestamp.timestamp;

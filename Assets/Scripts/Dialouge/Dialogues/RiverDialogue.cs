@@ -20,10 +20,12 @@ public class RiverDialogue : Dialogue
         }
         else if(type == ItemType.SAW)
         {
-            await this.showContinue("This item should work...");
+            //await this.showContinue("This item should work...");
             openenerAnimator.startAnimation();
             shower.disable();
-            GetComponent<AudioSource>().Play();
+            //GetComponent<AudioSource>().Play();
+            GlobalVariables.IsBridgeBroken = true;
+            PlayerSingleton.Instance.CurrentEquippedItem = PlayerSingleton.Instance.emptyItem;
         }
         else
         {

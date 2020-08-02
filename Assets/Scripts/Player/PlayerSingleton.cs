@@ -13,6 +13,7 @@ public class PlayerSingleton : MonoBehaviour
     }
 
     public Player gameObjectInstance;
+    public ItemData emptyItem;
     
     public static PlayerSingleton Instance => instance;
 
