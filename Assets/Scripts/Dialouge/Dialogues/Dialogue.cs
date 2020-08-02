@@ -13,10 +13,12 @@ public class Dialogue : MonoBehaviour
     private GameObject activeView;
 
     private string npcName;
+
+    private Vector3 pos;
     // Start is called before the first frame update
     void Start()
     {
-        yesNoPrefab = DialogueCanvasManager.instance.getYesNo();
+        //yesNoPrefab = DialogueCanvasManager.instance.getYesNo();
         continuePrefab = DialogueCanvasManager.instance.getContinue();
     }
     
@@ -46,6 +48,7 @@ public class Dialogue : MonoBehaviour
 
     protected Task<bool> showYesNo(string msg)
     {
+        return null;
         if(activeView != null)
             activeView.SetActive(false);
         activeView = yesNoPrefab.getInstance();
