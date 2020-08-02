@@ -50,12 +50,13 @@ public class PlayerMovement : MonoBehaviour
 
        animator.SetBool("walkingUp", z > 0);
        animator.SetBool("walking", isKeyDown);
-       
+       /*
        if (_isNearNpc)
        {
            float distZ = this.transform.position.z - nearNpc.transform.position.z;
            animator.SetBool("walkingUp", distZ < 0);
        }
+       */
     }
 
     public void isNearNpc(NpcDialogue npc)
