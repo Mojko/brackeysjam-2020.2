@@ -11,11 +11,42 @@ public class TimestampText : TextMeshProUGUI
 
     public void onSmoothSliderSlide(Timestamp timestamp)
     {
-        print("timestamp: " + timestamp);
-        this.lerp = true;
-        this.from = int.Parse(this.text);
-        this.to = timestamp.timestamp;
-        TimestampSingleton.Instance.currentTime = timestamp.timestamp;
+        int result;
+        float resultf;
+
+        lerp = true;
+        if(int.TryParse(this.text, out result))
+        {
+            this.from = result;
+          
+        }
+        else
+        {
+            lerp = false;
+        }
+
+        if(float.TryParse(timestamp.timestamp, out resultf))
+        {
+            this.to = resultf;
+        }
+        else
+        {
+            lerp = false;
+        }
+        
+        if(int.TryParse(timestamp.timestamp, out result))
+        {
+            TimestampSingleton.Instance.currentTime = result;
+        }
+        else
+        {
+            lerp = false;
+        }
+
+        if(!lerp)
+        {
+            this.text = timestamp.timestamp;
+        }
     }
 
     private void Update()

@@ -7,6 +7,9 @@ using TMPro;
 
 public class SmoothSlider : MonoBehaviour
 {
+    private static SmoothSlider instance;
+    public static SmoothSlider Instance => instance;
+
     public delegate void SlideEvent(Timestamp timestamp);
     public static event SlideEvent OnSlide;
 
@@ -26,13 +29,24 @@ public class SmoothSlider : MonoBehaviour
         set
         {
             sliding = value;
-            OnSlide.Invoke(this.timestamps[this.slideIndex]);
+            
+            if(OnSlide != null)
+                OnSlide.Invoke(this.timestamps[this.slideIndex]);
         }
     }
 
     private void Start()
     {
+        instance = this;
         slidingBackground.OnSlidingBackgroundClick += new SlidingBackground.SlidingBackgroundClickEvent(OnSlidingBackgroundClick);
+
+        foreach (var timestamp in timestamps)
+        {
+            timestamp.gameObject.SetActive(false);
+        }
+
+        this.timestamps[0].gameObject.SetActive(true);
+        this.SlideToTimestamp(0);
     }
 
     private void OnSlidingBackgroundClick(Vector2 position)
@@ -48,6 +62,11 @@ public class SmoothSlider : MonoBehaviour
 
         foreach (var timestamp in timestamps)
         {
+            if(timestamp.gameObject.activeInHierarchy == false)
+            {
+                continue;
+            }
+
             var diff = new Vector2(timestamp.rectTransform.position.x, timestamp.rectTransform.position.y) - position;
             if(diff.magnitude <= min_diff.magnitude)
             {
@@ -68,6 +87,11 @@ public class SmoothSlider : MonoBehaviour
             return;
         }
 
+        if(slideIndex >= timestamps.Length || slideIndex < 0)
+        {
+            return;
+        }
+
         handleRect.anchorMin = Vector2.Lerp(handleRect.anchorMin, new Vector2(timestamps[slideIndex].rectTransform.anchorMin.x, handleRect.anchorMin.y), 0.01f);
         handleRect.anchorMax = Vector2.Lerp(handleRect.anchorMax, new Vector2(timestamps[slideIndex].rectTransform.anchorMax.x, handleRect.anchorMax.y), 0.01f);
     }
@@ -76,5 +100,11 @@ public class SmoothSlider : MonoBehaviour
     {
         slideIndex = index;
         Sliding = true;
+    }
+
+    public void EnableTimestamp(int index)
+    {
+        Debug.Log(this.timestamps[index]);
+        this.timestamps[index].gameObject.SetActive(true);
     }
 }

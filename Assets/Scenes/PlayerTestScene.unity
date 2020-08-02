@@ -17054,6 +17054,10 @@ GameObject:
   - component: {fileID: 896297648}
   - component: {fileID: 896297650}
   - component: {fileID: 896297649}
+  - component: {fileID: 896297651}
+  - component: {fileID: 896297654}
+  - component: {fileID: 896297653}
+  - component: {fileID: 896297652}
   m_Layer: 0
   m_Name: cobweb (3)
   m_TagString: Untagged
@@ -17071,7 +17075,8 @@ Transform:
   m_LocalRotation: {x: -0.0057310276, y: -0.99426156, z: -0.07743958, w: -0.073581755}
   m_LocalPosition: {x: -24.75, y: 1.97, z: -2.05}
   m_LocalScale: {x: 2.90488, y: 2.90488, z: 2.90488}
-  m_Children: []
+  m_Children:
+  - {fileID: 1120309432}
   m_Father: {fileID: 462370094}
   m_RootOrder: 129
   m_LocalEulerAnglesHint: {x: -8.809, y: -188.567, z: 1.322}
@@ -17139,6 +17144,80 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &896297651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896297647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef7f0661f143e924f918df84beb3b36c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 1
+  letter: 69
+  toShow: {fileID: 6444531643932854810, guid: 7ee15a0e203e0d04aa18468ec0de57fc, type: 3}
+  origin: {fileID: 1120309432}
+  onVisible:
+    m_PersistentCalls:
+      m_Calls: []
+  onInteraction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 896297654}
+        m_TargetAssemblyTypeName: NpcDialogue, Assembly-CSharp
+        m_MethodName: onDialogueBegin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &896297652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896297647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f2fcdbbefa77b44688549e12f0aef2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &896297653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896297647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72336e5b9c1267c4194b75cf30b3d160, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entry: {fileID: 896297652}
+--- !u!114 &896297654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896297647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 117380af067305e4e9a9e90704544bb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 2
+  manager: {fileID: 896297653}
+  name: Spooki
 --- !u!1 &900019763
 GameObject:
   m_ObjectHideFlags: 0
@@ -18016,8 +18095,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.1545528, y: 9.371647, z: 7.360656}
-  m_Center: {x: 0.86389846, y: -0.63498306, z: 2.6769962}
+  m_Size: {x: 0.8935715, y: 9.371647, z: 7.360656}
+  m_Center: {x: 0.9943892, y: -0.63498306, z: 2.6769965}
 --- !u!1001 &948870747
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20701,6 +20780,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1120309431
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1120309432}
+  m_Layer: 0
+  m_Name: Origin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1120309432
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120309431}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.012, y: -0.128, z: 0.053}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 896297648}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1122996657
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27474,57 +27583,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1794159157381069172, guid: 966b61f681442d547b59860dc11e2bef, type: 3}
   m_PrefabInstance: {fileID: 1508147748}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1508147750 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1418056174968120270, guid: 966b61f681442d547b59860dc11e2bef, type: 3}
-  m_PrefabInstance: {fileID: 1508147748}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1508147751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1508147750}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef7f0661f143e924f918df84beb3b36c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 2
-  letter: 69
-  toShow: {fileID: 6444531643932854810, guid: 7ee15a0e203e0d04aa18468ec0de57fc, type: 3}
-  origin: {fileID: 2098853126}
-  onVisible:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1213867475}
-        m_TargetAssemblyTypeName: NpcDialogue, Assembly-CSharp
-        m_MethodName: onReadyDialogue
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onInteraction:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1213867475}
-        m_TargetAssemblyTypeName: NpcDialogue, Assembly-CSharp
-        m_MethodName: onDialogueBegin
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!4 &1510036526 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2c33880e7ac4b604f836e007cc05c554, type: 3}
@@ -29169,7 +29227,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1316271213063621764, guid: 5e0e6f391bd48a74582bac39040bd3ff, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.59
+      value: -25.45
       objectReference: {fileID: 0}
     - target: {fileID: 1316271213063621764, guid: 5e0e6f391bd48a74582bac39040bd3ff, type: 3}
       propertyPath: m_LocalPosition.y
@@ -36076,7 +36134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 2
   manager: {fileID: 2026222257}
-  name: Old Sign
+  name: Water Blacksmith INC
 --- !u!114 &2026222259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37800,8 +37858,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.3747501, y: 9.371647, z: 7.2960567}
-  m_Center: {x: 0.7538004, y: -0.63498306, z: 2.7092962}
+  m_Size: {x: 1.2115502, y: 9.371647, z: 6.309165}
+  m_Center: {x: 0.8354024, y: -0.63498306, z: 3.2027519}
 --- !u!1 &2112693671 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2c33880e7ac4b604f836e007cc05c554, type: 3}

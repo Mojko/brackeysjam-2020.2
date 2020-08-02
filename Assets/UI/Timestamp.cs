@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Timestamp : MonoBehaviour
 {
-    public int timestamp;
+    public string timestamp;
     [HideInInspector] public RectTransform rectTransform;
 
     private void Start()
