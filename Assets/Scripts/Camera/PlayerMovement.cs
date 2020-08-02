@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
         bool isKeyDown = Input.GetButton("Horizontal") || Input.GetButton("Vertical");
 
 
-        grounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        grounded = Physics.CheckSphere(groundCheck.position + new Vector3(0, -0.4f, 0), groundDistance, groundMask);
         if (grounded && velocity.y < 0)
             velocity.y = -2;
 
