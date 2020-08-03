@@ -30,6 +30,11 @@ public class StartMenuScript : MonoBehaviour
         if (animateInBlack)
         {
             blackFade.color = Color.Lerp(blackFade.color, targetColor, Time.deltaTime * fadeSpeed);
+            if (blackFade.color.a > 0.99)
+            {
+                print("GO TO NEW SCENE");
+                animateInBlack = false;
+            }
         }
     }
 
@@ -42,7 +47,7 @@ public class StartMenuScript : MonoBehaviour
     
     private IEnumerator waitAnimate()
     {
-        yield return new WaitForSecondsRealtime(0.35f);
+        yield return new WaitForSecondsRealtime(1f);
         animateInBlack = true;
     }
 

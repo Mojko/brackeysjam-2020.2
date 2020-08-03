@@ -15670,7 +15670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nuke: {fileID: 1844729829}
-  fadeSpeed: 3
+  fadeSpeed: 4
   blackFade: {fileID: 430563104}
   targetColor: {r: 0.6226415, g: 0.1967782, b: 0.1967782, a: 1}
 --- !u!1 &1844729826
