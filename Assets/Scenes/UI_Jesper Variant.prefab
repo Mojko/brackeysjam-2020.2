@@ -1,5 +1,62 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!95 &6133957171359668809
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114548757572725294}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e9f67f4ab5b2d7d42a7234d391f943af, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!95 &6086375850844104766
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9072456219115920355}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e9f67f4ab5b2d7d42a7234d391f943af, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!95 &6121623541475713002
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9072456219812963352}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e9f67f4ab5b2d7d42a7234d391f943af, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &3271196491019427463
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -516,6 +573,21 @@ PrefabInstance:
 --- !u!224 &2375136886904745524 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 978320753039896755, guid: b4ba39aa54ba41949a43faf063f5d55a, type: 3}
+  m_PrefabInstance: {fileID: 3271196491019427463}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9072456219115920355 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5801279798513206628, guid: b4ba39aa54ba41949a43faf063f5d55a, type: 3}
+  m_PrefabInstance: {fileID: 3271196491019427463}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9072456219812963352 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5801279799226514079, guid: b4ba39aa54ba41949a43faf063f5d55a, type: 3}
+  m_PrefabInstance: {fileID: 3271196491019427463}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1114548757572725294 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2455081715824997545, guid: b4ba39aa54ba41949a43faf063f5d55a, type: 3}
   m_PrefabInstance: {fileID: 3271196491019427463}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3271196491135820923

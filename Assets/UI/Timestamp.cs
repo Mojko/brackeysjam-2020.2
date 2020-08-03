@@ -12,4 +12,9 @@ public class Timestamp : MonoBehaviour
     {
         this.rectTransform = GetComponent<RectTransform>();
     }
+
+    public void PlayAnimation()
+    {
+        this.GetComponent<Animator>().Play("TimestampButtonAnimation");
+    }
 }

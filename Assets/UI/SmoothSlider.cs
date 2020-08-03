@@ -20,6 +20,7 @@ public class SmoothSlider : MonoBehaviour
     private int slideIndex;
     private float waitTime = 0.1f;
     private bool slid;
+    private bool doneIntro = false;
 
     private bool sliding;
     private bool Sliding
@@ -31,9 +32,6 @@ public class SmoothSlider : MonoBehaviour
         set
         {
             sliding = value;
-
-            Debug.Log("Sliding to: " + slideIndex + ", " + this.timestamps[this.slideIndex]);
-            Debug.Log("is onslide null: " + OnSlide);
 
             OnSlide.Invoke(this.timestamps[this.slideIndex]);
         }
@@ -52,10 +50,9 @@ public class SmoothSlider : MonoBehaviour
             i++;
         }
 
-        this.timestamps[0].gameObject.SetActive(true);
-        //this.timestamps[1].gameObject.SetActive(true);
-        //this.timestamps[2].gameObject.SetActive(true);
-        
+        this.EnableTimestamp(0);
+        this.SlideToTimestamp(0);
+        this.doneIntro = true;
     }
 
     public Timestamp getCurrentTimestamp()
@@ -124,6 +121,14 @@ public class SmoothSlider : MonoBehaviour
 
     public void SlideToTimestamp(int index)
     {
+        if(this.doneIntro)
+        {
+            if (this.getCurrentTimestamp() == this.timestamps[index])
+            {
+                return;
+            }
+        }
+
         if (PlayerSingleton.Instance.occupied) return;
         OnStartSlide?.Invoke(this.timestamps[this.slideIndex]);
         StartCoroutine(waitForEnimation(index));
@@ -140,5 +145,6 @@ public class SmoothSlider : MonoBehaviour
     {
         Debug.Log(this.timestamps[index]);
         this.timestamps[index].gameObject.SetActive(true);
+        this.timestamps[index].PlayAnimation();
     }
 }
