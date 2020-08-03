@@ -25,6 +25,8 @@ public class FogEnabler : MonoBehaviour
         color = Camera.main.backgroundColor;
         color = new Color(color.r,color.g,color.b);
         camera = Camera.main;
+
+        SmoothSlider.OnSlide += SmoothSlider_OnSlide;
     }
 
     // Update is called once per frame
@@ -44,6 +46,15 @@ public class FogEnabler : MonoBehaviour
             */
         }
     }
+
+    private void SmoothSlider_OnSlide(Timestamp timestamp)
+    {
+        RenderSettings.fogDensity = fogDensityTarget;
+        target = color;
+        targetDensity = 0;
+        animate = true;
+    }
+
     //TODO: fade in shade...
 
     private void OnTriggerEnter(Collider other)

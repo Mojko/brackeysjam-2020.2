@@ -34,10 +34,16 @@ public class SquirrelEatNutScaredScript : MonoBehaviour
                 this.GetComponent<Squirrel>().jumpInterval = 0.01f;
                 this.GetComponent<Squirrel>().jumpHeight = 0.025f;
 
-                GameObject go = Instantiate(this.nutToSpawn);
-                go.transform.position = this.transform.position;
-                go.transform.localScale = new Vector3(3, 3, 3);
-                this.nutInHandToDissapear.SetActive(false);
+                if(this.nutToSpawn != null)
+                {
+                    GameObject go = Instantiate(this.nutToSpawn);
+                    go.transform.position = this.transform.position;
+                    go.transform.localScale = new Vector3(3, 3, 3);
+                }
+                if(this.nutInHandToDissapear != null)
+                {
+                    this.nutInHandToDissapear.SetActive(false);
+                }
             }
         }
 
