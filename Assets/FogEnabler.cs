@@ -18,6 +18,8 @@ public class FogEnabler : MonoBehaviour
 
     private Camera camera;
 
+    private bool inside = false;
+
     //public Color fogColor;
     // Start is called before the first frame update
     void Start()
@@ -49,10 +51,11 @@ public class FogEnabler : MonoBehaviour
 
     private void SmoothSlider_OnSlide(Timestamp timestamp)
     {
-        RenderSettings.fogDensity = fogDensityTarget;
-        target = color;
-        targetDensity = 0;
-        animate = true;
+        RenderSettings.fog = false;
+        RenderSettings.fogDensity = 0;
+        if(camera)
+            camera.backgroundColor = color;
+        inside = false;
     }
 
     //TODO: fade in shade...
@@ -64,10 +67,32 @@ public class FogEnabler : MonoBehaviour
         target = RenderSettings.fogColor;
         targetDensity = fogDensityTarget;
         animate = true;
+        print("IM HERE");
+        inside = true;
     }
+
+    private void OnDisable()
+    {
+        RenderSettings.fog = false;
+        RenderSettings.fogDensity = 0;
+        if(camera)
+        camera.backgroundColor = color;
+        inside = false;
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (inside) return;
+        if (!other.gameObject.name.Equals("Player")) return;
+        OnTriggerEnter(other);
+        print("IM HERE DUDE");
+    }
+
 
     private void OnTriggerExit(Collider other)
     {
+        if (!other.gameObject.name.Equals("Player")) return;
+        inside = false;
         RenderSettings.fogDensity = fogDensityTarget;
         target = color;
         targetDensity = 0;

@@ -10,6 +10,5 @@ public class Timestamp : MonoBehaviour
     private void Start()
     {
         this.rectTransform = GetComponent<RectTransform>();
-        Debug.Log(this.rectTransform);
     }
 }
