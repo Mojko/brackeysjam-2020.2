@@ -11,6 +11,9 @@ public class TimestampEntity : MonoBehaviour
         SmoothSlider.OnSlide += SmoothSlider_OnSlide;
         BabyTransition.OnBabyTransition += BabyTransition_OnBabyTransition;
         this.gameObject.SetActive(false);
+        
+        DropHelper.registerDropArea(myTime,this.gameObject);
+        
     }
 
     private void BabyTransition_OnBabyTransition()
@@ -32,6 +35,7 @@ public class TimestampEntity : MonoBehaviour
         }
         else
         {
+            print("setting to inactive:"+ myTime);
             this.gameObject.SetActive(false);
         }
     }

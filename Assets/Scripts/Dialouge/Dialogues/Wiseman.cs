@@ -7,6 +7,13 @@ public class Wiseman : Dialogue
 
     private bool introStated = false;
 
+    protected override void onStart()
+    {
+        base.onStart();
+        SmoothSlider.Instance.EnableTimestamp(1);
+
+    }
+
     protected override async void dialogue()
     {
         if (introStated)

@@ -20,8 +20,13 @@ public class Dialogue : MonoBehaviour
     {
         //yesNoPrefab = DialogueCanvasManager.instance.getYesNo();
         continuePrefab = DialogueCanvasManager.instance.getContinue();
+        onStart();
     }
-    
+
+    protected virtual void onStart()
+    {
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -33,6 +38,7 @@ public class Dialogue : MonoBehaviour
     {
         this.npcName = npcName;
         callbackWhenDone = action;
+        PlayerSingleton.Instance.occupied = true;
         dialogue();
     }
 
@@ -40,6 +46,7 @@ public class Dialogue : MonoBehaviour
 
     public void end()
     {
+        PlayerSingleton.Instance.occupied = false;
         if(this.activeView != null)
             this.activeView.SetActive(false);
         this.activeView = null;

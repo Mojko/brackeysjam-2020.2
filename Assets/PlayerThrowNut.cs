@@ -24,13 +24,13 @@ public class PlayerThrowNut : MonoBehaviour
 
     private void Start()
     {
-        interactableObjectInstance = Instantiate(interactableObject);
+        interactableObjectInstance = DropHelper.Drop(interactableObject);
         interactableObjectInstance.SetActive(false);
         interactableObjectInstance.transform.parent = GameObject.FindGameObjectWithTag("DialogueCanvas").transform;
         interactableObjectInstance.transform.localScale = Vector3.one;
         //interactableObjectInstance.GetComponent<RectTransform>().localScale = Vector3.one;
 
-        throwNutTextInstance = Instantiate(throwNutText);
+        throwNutTextInstance = DropHelper.Drop(throwNutText);
         throwNutTextInstance.SetActive(false);
         throwNutTextInstance.transform.parent = GameObject.FindGameObjectWithTag("DialogueCanvas").transform;
         throwNutTextInstance.transform.localScale = Vector3.one;
@@ -46,8 +46,9 @@ public class PlayerThrowNut : MonoBehaviour
             if (!thrown && Input.GetKeyDown(KeyCode.E))
             {
                 PlayerSingleton.Instance.CurrentEquippedItem = PlayerSingleton.Instance.emptyItem;
-                nutInstance = Instantiate(this.nutToThrow);
+                nutInstance = DropHelper.Drop(this.nutToThrow);
                 nutInstance.transform.position = this.transform.position;//this.interactableObjectOrigin.transform.position;
+                PlayerSingleton.Instance.occupied = true;
                 thrown = true;
                 this.throwPosition = nutInstance.transform.position;
             }

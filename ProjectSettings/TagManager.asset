@@ -6,6 +6,9 @@ TagManager:
   tags:
   - DialogueCanvas
   - DialogueEntryCanvas
+  - '?'
+  - 1990
+  - 2000
   layers:
   - Default
   - TransparentFX

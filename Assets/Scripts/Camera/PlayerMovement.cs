@@ -22,6 +22,18 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         this.controller = this.GetComponent<CharacterController>();
+        SmoothSlider.OnStartSlide += onSlide;
+    }
+
+    private void onSlide(Timestamp timestamp)
+    {
+        animator.SetTrigger("Teleport");
+        //teleportAnimator.SetBool("teleport",true);
+    }
+
+    void onTeleportComplete()
+    {
+        animator.SetBool("teleport",false);
     }
 
     // Update is called once per frame

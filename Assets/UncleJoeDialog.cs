@@ -15,10 +15,10 @@ public class UncleJoeDialog : Dialogue
                 await this.showContinue("What's that? You need a saw? Well sure! I have plenty, there should be one in the back");
                 PlayerSingleton.Instance.CurrentEquippedItem = PlayerSingleton.Instance.emptyItem;
 
-                var go = Instantiate(ObjectSpawnHelper.Instance.saw);
+                var go = DropHelper.Drop(ObjectSpawnHelper.Instance.saw);
                 go.transform.position = SawSpawnLocationUncleJoeQuest.Instance.transform.position;
 
-                var go2 = Instantiate(ObjectSpawnHelper.Instance.squirrle);
+                var go2 = DropHelper.Drop(ObjectSpawnHelper.Instance.squirrle);
                 go2.transform.position = EkorrSpawnlocationUncleJoeQuest.Instance.transform.position;
 
                 QuestHelper.Instance.SetText("Find a way to deal with the squirrels for Stefan");

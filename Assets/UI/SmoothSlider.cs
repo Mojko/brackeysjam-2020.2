@@ -12,7 +12,7 @@ public class SmoothSlider : MonoBehaviour
 
     public delegate void SlideEvent(Timestamp timestamp);
     public static event SlideEvent OnSlide;
-
+    public static event SlideEvent OnStartSlide;
     public RectTransform handleRect;
     public Timestamp[] timestamps;
     public SlidingBackground slidingBackground;
@@ -53,6 +53,11 @@ public class SmoothSlider : MonoBehaviour
         //this.timestamps[1].gameObject.SetActive(true);
         //this.timestamps[2].gameObject.SetActive(true);
         
+    }
+
+    public Timestamp getCurrentTimestamp()
+    {
+        return this.timestamps[slideIndex];
     }
 
     private void OnSlidingBackgroundClick(Vector2 position)
@@ -116,6 +121,14 @@ public class SmoothSlider : MonoBehaviour
 
     public void SlideToTimestamp(int index)
     {
+        if (PlayerSingleton.Instance.occupied) return;
+        OnStartSlide?.Invoke(this.timestamps[this.slideIndex]);
+        StartCoroutine(waitForEnimation(index));
+    }
+
+    private IEnumerator waitForEnimation(int index)
+    {
+        yield return new WaitForSecondsRealtime(0.20f);
         slideIndex = index;
         Sliding = true;
     }

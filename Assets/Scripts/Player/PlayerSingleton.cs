@@ -28,6 +28,8 @@ public class PlayerSingleton : MonoBehaviour
     public bool CanPlayerMove { get; set; }
 
     private ItemData currentEquippedItem;
+    public bool occupied = false;
+
     public ItemType GetCurrentEquippedItemType()
     {
         return currentEquippedItem == null ? ItemType.EMPTY : currentEquippedItem.itemType;
