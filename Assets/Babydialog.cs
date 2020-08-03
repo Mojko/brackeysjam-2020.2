@@ -21,6 +21,7 @@ public class Babydialog : Dialogue
             {
                 await this.showContinue("You got it right! Goodbye for now");
                 end();
+                BabyTransition.Instance.GoBackToOldPosition();
                 return;
             }
             else
