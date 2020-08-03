@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PlayerTestScene.unity
     guid: 73bfca46d47765740a9f381b1458fe0b
+  - enabled: 0
+    path: Assets/Scenes/Jesper_EndScene.unity
+    guid: 39e8e5a131889994bb6b076bbee26320
+  - enabled: 1
+    path: Assets/Scenes/Jesper_CreditsScene.unity
+    guid: 53f8cf01b0a60004592f157de07b5fed
   m_configObjects: {}

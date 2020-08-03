@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraFadeout : MonoBehaviour
 {
@@ -25,6 +26,11 @@ public class CameraFadeout : MonoBehaviour
 
         this.cameraFadeout.color = new Color(0,0,0, fadeoutTimer);
         fadeoutTimer += Time.deltaTime * 0.3f;
+
+        if(this.cameraFadeout.color.a >= 1)
+        {
+            SceneManager.LoadScene("Jesper_CreditsScene");   
+        }
     }
 
     public void FadeOut()
