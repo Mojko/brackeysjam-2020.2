@@ -98,6 +98,10 @@ public class Puzzle_1 : MonoBehaviour
         }
         else
         {
+            if(nut == nut_1)
+            {
+                return;
+            }
             foreach (var n in nuts)
             {
                 n.GetComponent<InteractorShower>().enabled = false;
