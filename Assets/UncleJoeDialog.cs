@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class UncleJoeDialog : Dialogue
 {
+
+    private bool hasFoundSquirrel = false;
+    
     protected override async void dialogue()
     {
         if(GlobalVariables.ShouldCollectSquirrelForUncleJoe)
         {
-            if(PlayerSingleton.Instance.GetCurrentEquippedItemType() == ItemType.SQUIRRLE)
+            if(!hasFoundSquirrel && PlayerSingleton.Instance.GetCurrentEquippedItemType() == ItemType.SQUIRRLE)
             {
                 await this.showContinue("Yaaay a furry friend! Thank you so much kind stranger");
                 await this.showContinue("I wish I could pay you back somehow..");
@@ -22,13 +25,21 @@ public class UncleJoeDialog : Dialogue
                 go2.transform.position = EkorrSpawnlocationUncleJoeQuest.Instance.transform.position;
 
                 QuestHelper.Instance.SetText("Find a way to deal with the squirrels for Stefan");
-
+                hasFoundSquirrel = true;
                 end();
                 return;
             }
             else
             {
-                await this.showContinue("Have you found a furry friend for me?");
+                if (hasFoundSquirrel)
+                {
+                    await this.showContinue("Tanks for the squirrel. The saw is in the back.");
+                }
+                else
+                {
+                    await this.showContinue("Have you found a furry friend for me?");
+                }
+
                 end();
                 return;
             }

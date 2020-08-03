@@ -16,7 +16,7 @@ public class Wiseman : Dialogue
     {
         if (introStated)
         {
-            await this.showContinue("What are you waiting for. <b>GO!</b>");
+            await this.showContinue("What are you waiting for. Use the clock on the bottom of the screen to travel to different places in time.");
         }
         else
         {
@@ -41,10 +41,10 @@ public class Wiseman : Dialogue
                 "You have to gather 8 codes from around different times throughout history and give them to me so I can stop <b>Ekorre Inc</b> from sending the nuclear bombs.");
             
             await this.showContinue(
-                "The first code can be found at my old friend <b>Stefan</b> that I knew a long time ago. When you meet him, ask him about that time in Sweden");
+                "The first code can be found at my old friend <b>Stefan</b> that I knew a long time ago. When you meet him, ask him about the weird numbers.");
             
             await this.showContinue("Remember to <b>observe</b> your surroundings and <b>Remember!</b>");
-            await this.showContinue("Now go and save the future!");
+            await this.showContinue("Use the clock on the bottom of the screen to travel to different places in time.");
             introStated = true;
             SmoothSlider.Instance.EnableTimestamp(1);
         }
