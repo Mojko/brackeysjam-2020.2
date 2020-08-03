@@ -18,6 +18,14 @@ public class BombDefuseDialog : MonoBehaviour
             return;
         }
 
+        if(this.text.GetComponent<TextMeshProUGUI>().text.Equals(GlobalVariables.KeyCode))
+        {
+            CameraFadeout.Instance.FadeOut();
+            PlayerSingleton.Instance.CanPlayerMove = false;
+            GameObject.FindGameObjectWithTag("UI_JESPER").gameObject.SetActive(false);
+            GameObject.FindGameObjectWithTag("DialogueCanvas").gameObject.SetActive(false);
+        }
+
         if (PlayerSingleton.Instance.gameObjectInstance.GetComponent<PlayerMovement>().wew.magnitude > 0.1f)
         {
             this.isOn = false;
