@@ -39,14 +39,17 @@ public class SmoothSlider : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void Awake()
     {
+        print("STARTING SMOOTH SLIDER");
         instance = this;
         slidingBackground.OnSlidingBackgroundClick += new SlidingBackground.SlidingBackgroundClickEvent(OnSlidingBackgroundClick);
-
+        int i = 0;
         foreach (var timestamp in timestamps)
         {
             timestamp.gameObject.SetActive(false);
+            timestamp.index = i;
+            i++;
         }
 
         this.timestamps[0].gameObject.SetActive(true);

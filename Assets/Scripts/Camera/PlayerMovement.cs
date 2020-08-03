@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     {
         this.controller = this.GetComponent<CharacterController>();
         SmoothSlider.OnStartSlide += onSlide;
+        BabyTransition.OnMove += ()=>onSlide(null);
     }
 
     private void onSlide(Timestamp timestamp)
@@ -31,16 +32,11 @@ public class PlayerMovement : MonoBehaviour
         //teleportAnimator.SetBool("teleport",true);
     }
 
-    void onTeleportComplete()
-    {
-        animator.SetBool("teleport",false);
-    }
-
     // Update is called once per frame
     void Update()
     {
-        this.transform.position += new Vector3(0.1f, 0, 0);
-        if(!PlayerSingleton.Instance.CanPlayerMove)
+        //this.transform.position += new Vector3(0.1f, 0, 0);
+        if(!PlayerSingleton.Instance.CanPlayerMove || PlayerSingleton.Instance.occupied)
         {
             return;
         }

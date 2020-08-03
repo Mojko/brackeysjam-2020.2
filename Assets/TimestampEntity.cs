@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,13 +7,17 @@ public class TimestampEntity : MonoBehaviour
 {
     public string myTime;
 
+    private void Awake()
+    {
+        DropHelper.registerDropArea(myTime,this.gameObject);
+    }
+
     private void Start()
     {
         SmoothSlider.OnSlide += SmoothSlider_OnSlide;
         BabyTransition.OnBabyTransition += BabyTransition_OnBabyTransition;
         this.gameObject.SetActive(false);
         
-        DropHelper.registerDropArea(myTime,this.gameObject);
         
     }
 

@@ -9,7 +9,7 @@ public class BabyScene : MonoBehaviour
 
     public GameObject location;
 
-    private void Start()
+    private void Awake()
     {
         instance = this;
     }

@@ -6,6 +6,7 @@ public class Timestamp : MonoBehaviour
 {
     public string timestamp;
     [HideInInspector] public RectTransform rectTransform;
+    [HideInInspector] public int index = 0;
 
     private void Start()
     {

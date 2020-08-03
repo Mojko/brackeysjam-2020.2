@@ -42,7 +42,7 @@ public class InteractorShower : MonoBehaviour
         this.instance.SetActive(false);
 
         SmoothSlider.OnSlide += OnSlide;
-
+        BabyTransition.OnBabyTransition += OnBabySlide;
     }
 
     void OnSlide(Timestamp stamp)
@@ -50,6 +50,12 @@ public class InteractorShower : MonoBehaviour
         inRange = false;
         this.instance?.SetActive(false);
     }
+
+    void OnBabySlide()
+    {
+        OnSlide(null);
+    }
+    
 
     private bool checkInRange()
     {
@@ -89,6 +95,7 @@ public class InteractorShower : MonoBehaviour
     {
         Destroy(this.instance);
         SmoothSlider.OnSlide -= OnSlide;
+        BabyTransition.OnBabyTransition -= OnBabySlide;
     }
 
     public void disable()

@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class StefanDialogue : Dialogue
 {
+
+    public NpcDialogue babyDialogue;
+    
     protected override async void dialogue()
     {
         if(GlobalVariables.BrokeSquirrleDam)
@@ -15,6 +19,10 @@ public class StefanDialogue : Dialogue
             await this.showContinue("Feels like they're social distancing by default");
             QuestHelper.Instance.SetText("");
             end();
+            await Task.Delay(2000);
+            BabyTransition.Instance.Transition();
+            await Task.Delay(2000);
+            babyDialogue.onDialogueBegin();
             return;
         }
 

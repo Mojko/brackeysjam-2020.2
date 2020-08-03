@@ -10,8 +10,6 @@ public class Wiseman : Dialogue
     protected override void onStart()
     {
         base.onStart();
-        SmoothSlider.Instance.EnableTimestamp(1);
-
     }
 
     protected override async void dialogue()
