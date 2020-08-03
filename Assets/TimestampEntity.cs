@@ -14,7 +14,6 @@ public class TimestampEntity : MonoBehaviour
 
     private void SmoothSlider_OnSlide(Timestamp timestamp)
     {
-        Debug.Log("wew");
         if(timestamp.timestamp.Equals(myTime))
         {
             this.gameObject.SetActive(true);

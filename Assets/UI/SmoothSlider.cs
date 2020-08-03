@@ -46,8 +46,8 @@ public class SmoothSlider : MonoBehaviour
         }
 
         this.timestamps[0].gameObject.SetActive(true);
-        this.timestamps[1].gameObject.SetActive(true);
-        this.timestamps[2].gameObject.SetActive(true);
+        //this.timestamps[1].gameObject.SetActive(true);
+        //this.timestamps[2].gameObject.SetActive(true);
         this.SlideToTimestamp(0);
     }
 

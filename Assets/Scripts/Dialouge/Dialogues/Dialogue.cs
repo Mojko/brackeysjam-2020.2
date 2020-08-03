@@ -62,11 +62,16 @@ public class Dialogue : MonoBehaviour
     }
     protected Task showContinue(string msg)
     {
+        return showContinue(this.npcName, msg);
+    }
+    
+    protected Task showContinue(string name, string msg)
+    {
         if(activeView != null)
             activeView.SetActive(false);
         activeView = continuePrefab.getInstance();
         TaskCompletionSource<bool> tcs1 = new TaskCompletionSource<bool>();
-        continuePrefab.show(npcName,msg);
+        continuePrefab.show(name,msg);
 
         continuePrefab.onClick(() =>
         {

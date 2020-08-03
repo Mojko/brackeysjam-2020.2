@@ -126,6 +126,8 @@ public class TypeWriter
 
             this.segmentedText += fullText[index];
             index++;
+            if(fullText[index] == '<')
+                while (fullText[index++] != '>');
             this.updateCallback(this.segmentedText);
         }
     }
