@@ -9,6 +9,7 @@ TagManager:
   - '?'
   - 1990
   - 2000
+  - End
   layers:
   - Default
   - TransparentFX

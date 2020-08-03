@@ -55,6 +55,7 @@ public class SmoothSlider : MonoBehaviour
         }
 
         this.EnableTimestamp(0);
+        this.EnableTimestamp(3);
         this.SlideToTimestamp(0);
         this.doneIntro = true;
     }

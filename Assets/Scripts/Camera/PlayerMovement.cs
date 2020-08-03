@@ -14,7 +14,8 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
     public float jumpForce = 15;
 
-    private Vector3 velocity;
+    public Vector3 velocity;
+    public Vector3 wew;
     private bool grounded = false;
     private NpcDialogue nearNpc = null;
     private bool _isNearNpc = false;
@@ -56,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
         Vector3 move = transform.right * x + transform.forward * z;
+        wew = move;
         controller.Move(move * Time.deltaTime * movementSpeed);
         velocity.y += gravity * Time.deltaTime;
 
