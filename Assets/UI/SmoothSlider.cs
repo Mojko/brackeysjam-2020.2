@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -39,8 +40,11 @@ public class SmoothSlider : MonoBehaviour
 
     private void Awake()
     {
-        print("STARTING SMOOTH SLIDER");
         instance = this;
+    }
+
+    private void Start()
+    {
         slidingBackground.OnSlidingBackgroundClick += new SlidingBackground.SlidingBackgroundClickEvent(OnSlidingBackgroundClick);
         int i = 0;
         foreach (var timestamp in timestamps)
@@ -128,7 +132,7 @@ public class SmoothSlider : MonoBehaviour
                 return;
             }
         }
-
+        print("here" + PlayerSingleton.Instance);
         if (PlayerSingleton.Instance.occupied) return;
         OnStartSlide?.Invoke(this.timestamps[this.slideIndex]);
         StartCoroutine(waitForEnimation(index));
