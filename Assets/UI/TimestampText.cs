@@ -11,6 +11,7 @@ public class TimestampText : TextMeshProUGUI
 
     public void onSmoothSliderSlide(Timestamp timestamp)
     {
+        Debug.Log("onSmoothSliderSlide on Text");
         int result;
         float resultf;
 

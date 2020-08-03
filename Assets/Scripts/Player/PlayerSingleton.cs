@@ -25,6 +25,8 @@ public class PlayerSingleton : MonoBehaviour
     public delegate void ItemChangedEvent(ItemData to);
     public static event ItemChangedEvent OnItemChanged;
 
+    public bool CanPlayerMove { get; set; }
+
     private ItemData currentEquippedItem;
     public ItemType GetCurrentEquippedItemType()
     {

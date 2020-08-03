@@ -9,7 +9,19 @@ public class TimestampEntity : MonoBehaviour
     private void Start()
     {
         SmoothSlider.OnSlide += SmoothSlider_OnSlide;
+        BabyTransition.OnBabyTransition += BabyTransition_OnBabyTransition;
         this.gameObject.SetActive(false);
+    }
+
+    private void BabyTransition_OnBabyTransition()
+    {
+        if(this.myTime != "baby")
+        {
+            this.gameObject.SetActive(false);
+            return;
+        }
+
+        this.gameObject.SetActive(true);
     }
 
     private void SmoothSlider_OnSlide(Timestamp timestamp)

@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
-    private CharacterController controller;
+    public CharacterController controller;
     public float movementSpeed = 12f;
     public Animator animator;
     public Transform groundCheck;
@@ -27,6 +27,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        this.transform.position += new Vector3(0.1f, 0, 0);
+        if(!PlayerSingleton.Instance.CanPlayerMove)
+        {
+            return;
+        }
 
         bool isKeyDown = Input.GetButton("Horizontal") || Input.GetButton("Vertical");
 
@@ -45,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 move = transform.right * x + transform.forward * z;
         controller.Move(move * Time.deltaTime * movementSpeed);
         velocity.y += gravity * Time.deltaTime;
-       
+
         controller.Move(velocity * Time.deltaTime);
 
        animator.SetBool("walkingUp", z > 0);

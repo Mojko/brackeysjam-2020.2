@@ -18,6 +18,8 @@ public class SmoothSlider : MonoBehaviour
     public SlidingBackground slidingBackground;
 
     private int slideIndex;
+    private float waitTime = 0.1f;
+    private bool slid;
 
     private bool sliding;
     private bool Sliding
@@ -29,9 +31,11 @@ public class SmoothSlider : MonoBehaviour
         set
         {
             sliding = value;
-            
-            if(OnSlide != null)
-                OnSlide.Invoke(this.timestamps[this.slideIndex]);
+
+            Debug.Log("Sliding to: " + slideIndex + ", " + this.timestamps[this.slideIndex]);
+            Debug.Log("is onslide null: " + OnSlide);
+
+            OnSlide.Invoke(this.timestamps[this.slideIndex]);
         }
     }
 
@@ -48,7 +52,7 @@ public class SmoothSlider : MonoBehaviour
         this.timestamps[0].gameObject.SetActive(true);
         //this.timestamps[1].gameObject.SetActive(true);
         //this.timestamps[2].gameObject.SetActive(true);
-        this.SlideToTimestamp(0);
+        
     }
 
     private void OnSlidingBackgroundClick(Vector2 position)
@@ -84,6 +88,18 @@ public class SmoothSlider : MonoBehaviour
 
     public void Update()
     {
+        if(waitTime <= 0 && !slid)
+        {
+            this.SlideToTimestamp(0);
+            slid = true;
+            PlayerSingleton.Instance.CanPlayerMove = true;
+            return;
+        }
+        else
+        {
+            waitTime -= Time.deltaTime;
+        }
+
         if(!Sliding)
         {
             return;
