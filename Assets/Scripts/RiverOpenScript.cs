@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class RiverOpenScript : MonoBehaviour
 {
-
     public Animator riverAnimator;
     public Animator stoneAnimator;
 
@@ -12,5 +11,6 @@ public class RiverOpenScript : MonoBehaviour
     {
         riverAnimator.SetBool("start",true);
         stoneAnimator.SetBool("start",true);
+        GlobalVariables.BrokeSquirrleDam = true;
     }
 }

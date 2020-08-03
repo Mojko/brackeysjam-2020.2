@@ -6,6 +6,34 @@ public class UncleJoeDialog : Dialogue
 {
     protected override async void dialogue()
     {
+        if(GlobalVariables.ShouldCollectSquirrelForUncleJoe)
+        {
+            if(PlayerSingleton.Instance.GetCurrentEquippedItemType() == ItemType.SQUIRRLE)
+            {
+                await this.showContinue("Yaaay a furry friend! Thank you so much kind stranger");
+                await this.showContinue("I wish I could pay you back somehow..");
+                await this.showContinue("What's that? You need a saw? Well sure! I have plenty, there should be one in the back");
+                PlayerSingleton.Instance.CurrentEquippedItem = PlayerSingleton.Instance.emptyItem;
+
+                var go = Instantiate(ObjectSpawnHelper.Instance.saw);
+                go.transform.position = SawSpawnLocationUncleJoeQuest.Instance.transform.position;
+
+                var go2 = Instantiate(ObjectSpawnHelper.Instance.squirrle);
+                go2.transform.position = EkorrSpawnlocationUncleJoeQuest.Instance.transform.position;
+
+                QuestHelper.Instance.SetText("Find a way to deal with the squirrels for Stefan");
+
+                end();
+                return;
+            }
+            else
+            {
+                await this.showContinue("Have you found a furry friend for me?");
+                end();
+                return;
+            }
+        }
+
         await this.showContinue("Hey there chap, how's it hanging?");
         await this.showContinue("I've never seen you around here before? Are you new?");
         await this.showContinue("Ah I see, well, let me introduce myself.......... by telling a story");
@@ -36,6 +64,8 @@ public class UncleJoeDialog : Dialogue
         await this.showContinue("That's why I live around these areas you know, because I like the animals so much...");
         await this.showContinue("Could you be friendly and maybe help uncle joe out?");
         await this.showContinue("I'm feeling so down, I feel like I need a cuddle friend, could you get something for me to cuddle with? :(");
+        QuestHelper.Instance.SetText("Cheer Uncle Joe up by finding him a cuddle friend");
+        GlobalVariables.ShouldCollectSquirrelForUncleJoe = true;
         end();
     }
 }
