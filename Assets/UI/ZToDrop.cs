@@ -28,7 +28,7 @@ public class ZToDrop : MonoBehaviour
 
         if (PlayerSingleton.Instance.CurrentEquippedItem.spawnOnGroundOnDrop)
         {
-            GameObject go = Instantiate(PlayerSingleton.Instance.CurrentEquippedItem.objectToSpawnOnGround);
+            GameObject go = DropHelper.Drop(PlayerSingleton.Instance.CurrentEquippedItem.objectToSpawnOnGround);
             go.transform.position = PlayerSingleton.Instance.gameObjectInstance.feet.transform.position;
         }
         PlayerSingleton.Instance.CurrentEquippedItem = emptyItem;

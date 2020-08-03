@@ -26,7 +26,7 @@ public class InteractorShower : MonoBehaviour
     private KeyCode keyCode;
     private bool inRange = false;
     private bool disabled = false;
-
+    private bool destroyed = false;
     public UnityEvent<bool> onVisible;
     public UnityEvent onInteraction;
     // Start is called before the first frame update
@@ -40,6 +40,15 @@ public class InteractorShower : MonoBehaviour
         this.target = PlayerSingleton.Instance.getGameObject().transform;
         this.keyCode = (KeyCode)Enum.Parse(typeof(KeyCode), letter+"");
         this.instance.SetActive(false);
+
+        SmoothSlider.OnSlide += OnSlide;
+
+    }
+
+    void OnSlide(Timestamp stamp)
+    {
+        inRange = false;
+        this.instance?.SetActive(false);
     }
 
     private bool checkInRange()
@@ -79,6 +88,7 @@ public class InteractorShower : MonoBehaviour
     private void OnDestroy()
     {
         Destroy(this.instance);
+        SmoothSlider.OnSlide -= OnSlide;
     }
 
     public void disable()

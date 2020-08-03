@@ -26,6 +26,8 @@ public class PlayerSingleton : MonoBehaviour
     public static event ItemChangedEvent OnItemChanged;
 
     private ItemData currentEquippedItem;
+    public bool occupied = false;
+
     public ItemType GetCurrentEquippedItemType()
     {
         return currentEquippedItem == null ? ItemType.EMPTY : currentEquippedItem.itemType;

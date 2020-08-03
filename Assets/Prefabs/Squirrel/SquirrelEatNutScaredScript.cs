@@ -24,7 +24,6 @@ public class SquirrelEatNutScaredScript : MonoBehaviour
     void Update()
     {
         var distance = Vector3.Distance(PlayerSingleton.Instance.gameObjectInstance.transform.position, this.transform.position);
-
         if(distance <= 1)
         {
             if(run == false)
@@ -36,7 +35,7 @@ public class SquirrelEatNutScaredScript : MonoBehaviour
 
                 if(this.nutToSpawn != null)
                 {
-                    GameObject go = Instantiate(this.nutToSpawn);
+                    GameObject go = DropHelper.Drop(this.nutToSpawn);
                     go.transform.position = this.transform.position;
                     go.transform.localScale = new Vector3(3, 3, 3);
                 }

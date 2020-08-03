@@ -10,6 +10,9 @@ public class TimestampEntity : MonoBehaviour
     {
         SmoothSlider.OnSlide += SmoothSlider_OnSlide;
         this.gameObject.SetActive(false);
+        
+        DropHelper.registerDropArea(myTime,this.gameObject);
+        
     }
 
     private void SmoothSlider_OnSlide(Timestamp timestamp)
@@ -20,6 +23,7 @@ public class TimestampEntity : MonoBehaviour
         }
         else
         {
+            print("setting to inactive:"+ myTime);
             this.gameObject.SetActive(false);
         }
     }
