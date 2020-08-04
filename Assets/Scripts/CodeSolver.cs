@@ -1,18 +1,20 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
-public class BombDefuseDialog : MonoBehaviour
+public class CodeSolver : MonoBehaviour
 {
     public GameObject text;
     public GameObject text2;
     public GameObject window;
-
-    private bool isOn;
-
+    public NpcDialogue safeDialogue;
+    
+    
     private TextMeshProUGUI textM;
     private TextMeshProUGUI textTtile;
+    private bool isOn;
 
     private void Start()
     {
@@ -20,7 +22,6 @@ public class BombDefuseDialog : MonoBehaviour
         textTtile = this.text2.GetComponent<TextMeshProUGUI>();
     }
 
-    
     public void Update()
     {
         if(!isOn)
@@ -28,22 +29,22 @@ public class BombDefuseDialog : MonoBehaviour
             return;
         }
 
-        if(textM.text.Equals(GlobalVariables.KeyCode))
+        if(textM.text.Equals(GlobalVariables.safeKeyCode))
         {
-            CameraFadeout.Instance.FadeOut();
-            PlayerSingleton.Instance.CanPlayerMove = false;
-            GameObject.FindGameObjectWithTag("UI_JESPER").gameObject.SetActive(false);
-            GameObject.FindGameObjectWithTag("DialogueCanvas").gameObject.SetActive(false);
+            GameObject.FindGameObjectWithTag("SafeCodeDialogue").gameObject.SetActive(false);
+            PlayerSingleton.Instance.hasSolvedSafe = true;
+            safeDialogue.onDialogueBegin();
         }
 
         if (PlayerSingleton.Instance.gameObjectInstance.GetComponent<PlayerMovement>().wew.magnitude > 0.1f)
         {
-            textTtile.text = "Bomb defused";
+            textTtile.text = "Correct";
             this.isOn = false;
             text.SetActive(false);
             text2.SetActive(false);
             window.SetActive(false);
-            textM.text = "";
+            this.text.GetComponent<TextMeshProUGUI>().text = "";
+            textTtile.text = "Insert code";
         }
 
         if (Input.GetKeyDown(KeyCode.Backspace))
@@ -51,13 +52,13 @@ public class BombDefuseDialog : MonoBehaviour
             textM.text = textM.text.Substring(0, textM.text.Length - 1);
         }
 
-        if (textM.text.Length >= 8)
+        if (textM.text.Length >= 4)
         {
             textTtile.text = "Wrong Code";
             textM.text = "";
             return;
         }
-
+        
         int length = textM.text.Length;
         
         if (Input.GetKeyDown(KeyCode.Alpha0) || Input.GetKeyDown(KeyCode.Keypad0))
@@ -122,5 +123,6 @@ public class BombDefuseDialog : MonoBehaviour
         window.SetActive(true);
         textTtile.text = "Insert code";
         textM.text = "";
+
     }
 }

@@ -29,6 +29,7 @@ public class PlayerSingleton : MonoBehaviour
 
     private ItemData currentEquippedItem;
     public bool occupied = false;
+    public bool hasSolvedSafe = false;
 
     public ItemType GetCurrentEquippedItemType()
     {

@@ -39,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
         //this.transform.position += new Vector3(0.1f, 0, 0);
         if(!PlayerSingleton.Instance.CanPlayerMove || PlayerSingleton.Instance.occupied)
         {
+            wew.Set(0,0,0);
             return;
         }
 
