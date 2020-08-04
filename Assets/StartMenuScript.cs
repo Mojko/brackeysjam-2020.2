@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class StartMenuScript : MonoBehaviour
@@ -33,6 +34,7 @@ public class StartMenuScript : MonoBehaviour
             if (blackFade.color.a > 0.99)
             {
                 print("GO TO NEW SCENE");
+                SceneManager.LoadScene("PlayerTestScene");
                 animateInBlack = false;
             }
         }
@@ -43,6 +45,12 @@ public class StartMenuScript : MonoBehaviour
         nuke.SetTrigger("animate");
         blackFade.gameObject.SetActive(true);
         StartCoroutine(waitAnimate());
+    }
+
+    public void OnQuickButtonClicked()
+    {
+        UnityEditor.EditorApplication.isPlaying = false;
+        Application.Quit();
     }
     
     private IEnumerator waitAnimate()

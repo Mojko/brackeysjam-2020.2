@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Jesper_CreditsScene.unity
     guid: 53f8cf01b0a60004592f157de07b5fed
+  - enabled: 1
+    path: Assets/Scenes/MainMenuScene.unity
+    guid: 3cd775a63a6d3ac4e80b952fc6fe0671
   m_configObjects: {}
