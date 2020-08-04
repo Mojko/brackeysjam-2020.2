@@ -49,7 +49,6 @@ public class StartMenuScript : MonoBehaviour
 
     public void OnQuickButtonClicked()
     {
-        UnityEditor.EditorApplication.isPlaying = false;
         Application.Quit();
     }
     

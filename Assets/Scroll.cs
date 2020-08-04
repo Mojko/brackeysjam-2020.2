@@ -12,7 +12,6 @@ public class Scroll : MonoBehaviour
 
         if(this.GetComponent<RectTransform>().position.y >= 7250)
         { 
-            UnityEditor.EditorApplication.isPlaying = false;
             Application.Quit();
         }
     }

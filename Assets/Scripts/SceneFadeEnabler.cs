@@ -22,7 +22,7 @@ public class SceneFadeEnabler : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void fade(Fader.onFade fadeCallback)
     {
         PlayerSingleton.Instance.occupied = true;
         Fader.Instance().fadeIn(4, () =>
@@ -31,7 +31,15 @@ public class SceneFadeEnabler : MonoBehaviour
             enable.SetActive(true);
             PlayerSingleton.Instance.gameObjectInstance.ChangePosition(teleportTo.position);
             PlayerSingleton.Instance.occupied = false;
-            Fader.Instance().fadeOut(4, () => { });
+            Fader.Instance().fadeOut(4, () =>
+            {
+                fadeCallback?.Invoke();
+            });
         });
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        fade(null);
     }
 }

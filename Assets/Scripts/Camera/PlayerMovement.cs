@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     {
         this.controller = this.GetComponent<CharacterController>();
         SmoothSlider.OnStartSlide += onSlide;
-        BabyTransition.OnMove += ()=>onSlide(null);
+        BabyTransition.OnMove += (to,prev)=>onSlide(null);
     }
 
     private void onSlide(Timestamp timestamp)

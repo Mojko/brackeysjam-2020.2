@@ -15,7 +15,7 @@ public class UncleJoeDialog : Dialogue
             await this.showContinue("I've never seen you around here before? Are you new? Are you the son of my crazy neighbour? no? okay.");
             await this.showContinue("I thought you were his son because i have not seen the old man in a few days. Last time i was him was with a bunch of people in black suits.");
             await this.showContinue("The day after he was gone and he had written something weird on my wall.");
-            await this.showContinue("What was it? Well it was something like <b>x=3^2-</b>. I can't remember the last letter but i remember seeing it in his house when i was there one day.");
+            await this.showContinue("What was it? Well it was something like <b>x=3^2 - ???</b>. I can't remember the last letter but i remember seeing it in his house when i was there one day.");
             end();
             return;
         }

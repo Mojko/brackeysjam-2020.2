@@ -9,6 +9,14 @@ public class StefanDialogue : Dialogue
     private bool hasTalkedAboutNumbers = false;
     
     public NpcDialogue babyDialogue;
+
+    public SceneFadeEnabler stefanHouse;
+
+    public Transform transportTo;
+
+    public Transform newParent;
+    
+    private bool insideHouse = false;
     
     protected override async void dialogue()
     {
@@ -16,26 +24,36 @@ public class StefanDialogue : Dialogue
         {
             if (hasTalkedAboutNumbers)
             {
-                await this.showContinue("Thanks again for the help. Now i can finally enjoy the lake water");
+                await this.showContinue("Thanks again for the help. Now i can finally enjoy the lake water.");
                 end();
                 return;
             }
 
-            await this.showContinue("You got rid of the squirrle dam? Thank you so much!");
-            await this.showContinue("Do you have any questions to me?");
-            await this.showContinue("The weird letters on the wall? How come you're asking about that?");
-            await this.showContinue("Oh well, There was an old man living in this house before i moved in. The realtor said he was a former engineer at Ekorre Inc.");
-            await this.showContinue(
-                "When i moved in there were a bunch of weird number and equations on the wall. All i remembered is that there was a big <b>4</b> in the middle of the wall...");
-            await this.showContinue(
-                "There was also an equation beside it. From what i remember it started with 2x*2+... but the rest was erased. Maybe it was important or something. I dont know, i'm just a farmer.");
+            if (insideHouse)
+            {
+                await this.showContinue("It ain't much but it's honest work.");
+                await this.showContinue("The weird color on the wall? Ye I have not ave time to fix that. It was from the old owner.");
+                await this.showContinue("There was an old man living in this house before i moved in. The realtor said he was a former engineer at Ekorre Inc.");
+                await this.showContinue(
+                    "When i moved in there were a bunch of weird number and equations on the wall. All i remembered is that there was a big <b>4</b> in the middle of the wall...");
+                await this.showContinue(
+                    "There was also an equation beside it. From what i remember it started with 2x*2... but the rest i cant remember. Maybe it was important or something. I dont know, i'm just a farmer.");
+                end();
+                hasTalkedAboutNumbers = true;
+                await Task.Delay(2000);
+                BabyTransition.Instance.Transition();
+                await Task.Delay(2000);
+                babyDialogue.onDialogueBegin();
+                return;
+            }
             QuestHelper.Instance.SetText("");
+            await this.showContinue("You got rid of the squirrel dam? Thank you so much!");
+            await this.showContinue("Let me invite you into my house!");
+            insideHouse = true;
             end();
-            hasTalkedAboutNumbers = true;
-            await Task.Delay(2000);
-            BabyTransition.Instance.Transition();
-            await Task.Delay(2000);
-            babyDialogue.onDialogueBegin();
+            this.transform.parent = newParent;
+            this.transform.position = transportTo.position;
+            stefanHouse.fade(null);
             return;
         }
 

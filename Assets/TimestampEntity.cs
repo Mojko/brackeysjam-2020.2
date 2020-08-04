@@ -7,9 +7,16 @@ public class TimestampEntity : MonoBehaviour
 {
     public string myTime;
 
+    private static Dictionary<string, TimestampEntity> ents = new Dictionary<string, TimestampEntity>();
     private void Awake()
     {
         DropHelper.registerDropArea(myTime,this.gameObject);
+        ents[myTime] = this;
+    }
+
+    public static TimestampEntity getEntity(string time)
+    {
+        return ents[time];
     }
 
     private void Start()
@@ -21,15 +28,16 @@ public class TimestampEntity : MonoBehaviour
         
     }
 
-    private void BabyTransition_OnBabyTransition()
+    private void BabyTransition_OnBabyTransition(bool to, GameObject old)
     {
-        if(this.myTime != "baby")
+        if(!this.myTime.Equals("baby") && to)
         {
             this.gameObject.SetActive(false);
             return;
         }
-
-        this.gameObject.SetActive(true);
+        if(!to && old != null)
+            old.SetActive(true);
+        this.gameObject.SetActive(to);
     }
 
     private void SmoothSlider_OnSlide(Timestamp timestamp)

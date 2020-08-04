@@ -12,6 +12,8 @@ public class Dialogue : MonoBehaviour
     private Action callbackWhenDone;
     private GameObject activeView;
 
+    private static Dialogue activeDialogue;
+    
     private string npcName;
 
     private Vector3 pos;
@@ -39,7 +41,13 @@ public class Dialogue : MonoBehaviour
         this.npcName = npcName;
         callbackWhenDone = action;
         PlayerSingleton.Instance.occupied = true;
+        activeDialogue = this;
         dialogue();
+    }
+
+    public static void forceQuitActiveDialogue()
+    {
+        activeDialogue?.end();
     }
 
     protected virtual void dialogue() { }
@@ -50,6 +58,7 @@ public class Dialogue : MonoBehaviour
         if(this.activeView != null)
             this.activeView.SetActive(false);
         this.activeView = null;
+        activeDialogue = null;
         callbackWhenDone.Invoke();
     }
 
@@ -74,10 +83,16 @@ public class Dialogue : MonoBehaviour
     
     protected Task showContinue(string name, string msg)
     {
+        TaskCompletionSource<bool> tcs1 = new TaskCompletionSource<bool>();
+        if (Dialogue.activeDialogue == null)
+        {
+            tcs1.SetResult(true);
+            return tcs1.Task;
+        }
+
         if(activeView != null)
             activeView.SetActive(false);
         activeView = continuePrefab.getInstance();
-        TaskCompletionSource<bool> tcs1 = new TaskCompletionSource<bool>();
         continuePrefab.show(name,msg);
 
         continuePrefab.onClick(() =>

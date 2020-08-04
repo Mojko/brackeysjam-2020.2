@@ -43,7 +43,7 @@ public class InteractorShower : MonoBehaviour
 
         SmoothSlider.OnSlide += OnSlide;
         BabyTransition.OnBabyTransition += OnBabySlide;
-        Fader.onFading += OnBabySlide;
+        Fader.onFading += OnFade;
     }
 
     void OnSlide(Timestamp stamp)
@@ -52,7 +52,12 @@ public class InteractorShower : MonoBehaviour
         this.instance?.SetActive(false);
     }
 
-    void OnBabySlide()
+    void OnBabySlide(bool to, GameObject prev)
+    {
+        OnSlide(null);
+    }
+    
+    void OnFade()
     {
         OnSlide(null);
     }
@@ -97,6 +102,7 @@ public class InteractorShower : MonoBehaviour
         Destroy(this.instance);
         SmoothSlider.OnSlide -= OnSlide;
         BabyTransition.OnBabyTransition -= OnBabySlide;
+        Fader.onFading -= OnFade;
     }
 
     public void disable()
