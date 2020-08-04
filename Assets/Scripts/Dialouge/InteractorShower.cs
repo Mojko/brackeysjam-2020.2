@@ -43,6 +43,7 @@ public class InteractorShower : MonoBehaviour
 
         SmoothSlider.OnSlide += OnSlide;
         BabyTransition.OnBabyTransition += OnBabySlide;
+        Fader.onFading += OnBabySlide;
     }
 
     void OnSlide(Timestamp stamp)

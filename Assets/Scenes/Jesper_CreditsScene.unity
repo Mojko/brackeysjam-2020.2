@@ -397,8 +397,8 @@ MonoBehaviour:
     in the house\nStefan our loyal farmer\nUncle Joe and his shenanigans\nSquirrel
     op\nnuts\n\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 598f3f7f39ea084429b8236d31fffcca, type: 2}
+  m_sharedMaterial: {fileID: -7269932599103084730, guid: 598f3f7f39ea084429b8236d31fffcca, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -445,7 +445,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 167
+  m_firstOverflowCharacterIndex: 388
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_isTextTruncated: 0
@@ -466,7 +466,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -1545.5127, y: 0, z: -2059.2422, w: -1653.0881}
+  m_margin: {x: -1545.5127, y: 0, z: -2059.2422, w: -4445.8438}
   m_textInfo:
     textComponent: {fileID: 606763828}
     characterCount: 489
@@ -798,8 +798,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: CREDITS
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bc532cf64c09c674088fa40b8407ddac, type: 2}
+  m_sharedMaterial: {fileID: 9166560561378386851, guid: bc532cf64c09c674088fa40b8407ddac, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
