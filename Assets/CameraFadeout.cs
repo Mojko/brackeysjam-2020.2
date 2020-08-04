@@ -8,7 +8,7 @@ public class CameraFadeout : MonoBehaviour
     private static CameraFadeout instance;
     public static CameraFadeout Instance => instance;
 
-    public Material cameraFadeout;
+    public FADE_IN cameraFadeout;
     private float fadeoutTimer = 0f;
     private bool fadeout;
 
@@ -23,19 +23,10 @@ public class CameraFadeout : MonoBehaviour
         {
             return;
         }
-
-        this.cameraFadeout.color = new Color(0,0,0, fadeoutTimer);
-        fadeoutTimer += Time.deltaTime * 0.3f;
-
-        if(this.cameraFadeout.color.a >= 1)
-        {
-            SceneManager.LoadScene("Jesper_CreditsScene");   
-        }
     }
 
     public void FadeOut()
     {
-        this.fadeout = true;
-        this.fadeoutTimer = 0f;
+        cameraFadeout.startFadeIn();
     }
 }
