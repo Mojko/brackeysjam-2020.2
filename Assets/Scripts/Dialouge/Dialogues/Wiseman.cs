@@ -15,6 +15,7 @@ public class Wiseman : Dialogue
     protected override async void dialogue()
     {
         SmoothSlider.Instance.EnableTimestamp(1);
+        SmoothSlider.Instance.EnableTimestamp(4);
         end();
         return;
         if (introStated)

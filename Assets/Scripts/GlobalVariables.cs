@@ -10,7 +10,7 @@ public class GlobalVariables : MonoBehaviour
     public static bool HelpStefan { get; set; }
     public static string KeyCode => "01234567";
 
-    public static string safeKeyCode => "2134";
+    public static string safeKeyCode => "3810";
 
 
 }

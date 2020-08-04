@@ -54,6 +54,7 @@ public class BabyTransition : MonoBehaviour
     {
         yield return new WaitForSeconds(0.20f);
         PlayerSingleton.Instance.gameObjectInstance.ChangePosition(oldPlayerPos);
+        SmoothSlider.Instance.EnableTimestamp(4);
     }
 
 
