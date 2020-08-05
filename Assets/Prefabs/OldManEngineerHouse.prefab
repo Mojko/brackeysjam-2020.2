@@ -489,7 +489,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1063043825746341043}
   - component: {fileID: 382510938541996608}
-  - component: {fileID: 986604247077476260}
+  - component: {fileID: 8244107196319409239}
   m_Layer: 0
   m_Name: exitTrigger
   m_TagString: Untagged
@@ -524,7 +524,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 9.140517, y: 1, z: 1.2482939}
   m_Center: {x: 0.21267462, y: 0, z: 0.12414694}
---- !u!114 &986604247077476260
+--- !u!114 &8244107196319409239
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -533,12 +533,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4202491641571515182}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2808fa9feaad0e54988cbcae29381c47, type: 3}
+  m_Script: {fileID: 11500000, guid: d0543cabd60641199edc768299f81a6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   disable: {fileID: 0}
   enable: {fileID: 0}
-  teleportTo: {fileID: 7551692113779251645}
+  teleportTo: {fileID: 0}
 --- !u!1 &4447696693656226135
 GameObject:
   m_ObjectHideFlags: 0

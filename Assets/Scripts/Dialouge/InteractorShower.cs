@@ -27,8 +27,19 @@ public class InteractorShower : MonoBehaviour
     private bool inRange = false;
     private bool disabled = false;
     private bool destroyed = false;
-    public UnityEvent<bool> onVisible;
-    public UnityEvent onInteraction;
+    public UnityEvent<bool> onVisible = new UnityEvent<bool>();
+    public UnityEvent onInteraction = new UnityEvent();
+
+    public void addListener(UnityAction a)
+    {
+        if(onInteraction == null)
+            onInteraction = new UnityEvent();
+        
+        onInteraction.AddListener(a);
+    }
+   
+    
+
     // Start is called before the first frame update
     void Start()
     {

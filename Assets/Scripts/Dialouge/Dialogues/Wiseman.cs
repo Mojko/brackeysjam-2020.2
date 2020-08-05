@@ -14,10 +14,10 @@ public class Wiseman : Dialogue
 
     protected override async void dialogue()
     {
-        //SmoothSlider.Instance.EnableTimestamp(1);
-        //SmoothSlider.Instance.EnableTimestamp(4);
-        //end();
-        //return;
+        SmoothSlider.Instance.EnableTimestamp(5);
+        SmoothSlider.Instance.EnableTimestamp(4);
+        end();
+        return;
         //await this.showContinue("What are you waiting for. Use the clock on the bottom of the screen to travel to different places in time.");
         //BabyTransition.Instance.Transition();
         //Dialogue.forceQuitActiveDialogue();

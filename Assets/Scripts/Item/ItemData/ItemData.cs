@@ -17,5 +17,6 @@ public enum ItemType
     EMPTY,
     NUT,
     SAW,
-    SQUIRRLE
+    SQUIRRLE,
+    CAT
 }
