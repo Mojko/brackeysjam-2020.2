@@ -51,7 +51,7 @@ public class BombDefuseDialog : MonoBehaviour
             textM.text = textM.text.Substring(0, textM.text.Length - 1);
         }
 
-        if (textM.text.Length >= 8)
+        if (textM.text.Length >= 4)
         {
             textTtile.text = "Wrong Code";
             textM.text = "";

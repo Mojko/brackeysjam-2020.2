@@ -24,6 +24,14 @@ public class StefanDialogue : Dialogue
         {
             if (hasTalkedAboutNumbers)
             {
+                if (PlayerSingleton.Instance.hasTalkedToBlixtenAfterRats)
+                {
+                    await this.showContinue("How do you befriend the cat? Well he ain't easy to please. But if you find him a toy, he will love you forever.");
+                    await this.showContinue("He likes to play with strings. Especially if they are a little bit sticky.");
+                    end();
+                    return;   
+                }
+
                 await this.showContinue("Thanks again for the help. Now i can finally enjoy the lake water.");
                 end();
                 return;
@@ -32,7 +40,7 @@ public class StefanDialogue : Dialogue
             if (insideHouse)
             {
                 await this.showContinue("It ain't much but it's honest work.");
-                await this.showContinue("The weird color on the wall? Ye I have not ave time to fix that. It was from the old owner.");
+                await this.showContinue("The weird color on the wall? Ye I don't have time to fix that. It was from the old owner.");
                 await this.showContinue("There was an old man living in this house before i moved in. The realtor said he was a former engineer at Ekorre Inc.");
                 await this.showContinue(
                     "When i moved in there were a bunch of weird number and equations on the wall. All i remembered is that there was a big <b>4</b> in the middle of the wall...");

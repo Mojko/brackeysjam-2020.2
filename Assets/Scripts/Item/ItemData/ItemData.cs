@@ -18,5 +18,6 @@ public enum ItemType
     NUT,
     SAW,
     SQUIRRLE,
-    CAT
+    CAT,
+    COBWEB
 }

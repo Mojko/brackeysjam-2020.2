@@ -6,7 +6,12 @@ public class RatDialogue : Dialogue
 {
 
     public Collider entranceCollider;
-    
+    public ItemData cat;
+    protected override void onStart()
+    {
+        base.onStart();
+    }
+
     protected override async void dialogue()
     {
         var type = PlayerSingleton.Instance.GetCurrentEquippedItemType();
@@ -14,6 +19,7 @@ public class RatDialogue : Dialogue
         {
             await this.showContinue("The rats are blocking the way. Find a way to remove them.");
             QuestHelper.Instance.SetText("Find something to remove the rats.");
+            PlayerSingleton.Instance.talkedToRats = true;
         }
         else if(type == ItemType.CAT)
         {
@@ -26,7 +32,6 @@ public class RatDialogue : Dialogue
         {
             await this.showContinue("This item wont work...");
         }
-
         end();
     }
 }

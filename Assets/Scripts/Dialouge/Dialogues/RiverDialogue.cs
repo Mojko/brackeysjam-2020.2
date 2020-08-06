@@ -7,6 +7,13 @@ public class RiverDialogue : Dialogue
 
     public RiverOpenScript openenerAnimator;
     public InteractorShower shower;
+    public ItemData saw;
+    protected override void onStart()
+    {
+        base.onStart();
+        PlayerSingleton.Instance.CurrentEquippedItem = saw;
+    }
+
     protected override async void dialogue()
     {
         var type = PlayerSingleton.Instance.GetCurrentEquippedItemType();
@@ -25,7 +32,7 @@ public class RiverDialogue : Dialogue
             shower.disable();
             //GetComponent<AudioSource>().Play();
             GlobalVariables.IsBridgeBroken = true;
-            PlayerSingleton.Instance.CurrentEquippedItem = PlayerSingleton.Instance.emptyItem;
+            PlayerSingleton.Instance.dropCurrentItem();
         }
         else
         {

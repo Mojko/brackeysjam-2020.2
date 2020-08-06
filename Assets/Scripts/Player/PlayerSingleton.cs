@@ -30,6 +30,9 @@ public class PlayerSingleton : MonoBehaviour
     private ItemData currentEquippedItem;
     public bool occupied = false;
     public bool hasSolvedSafe = false;
+    public bool talkedToRats = false;
+    public bool hasTalkedToBlixtenAfterRats  =false;
+    public bool hasTalkedToNukeNote = false;
 
     public ItemType GetCurrentEquippedItemType()
     {
@@ -40,5 +43,11 @@ public class PlayerSingleton : MonoBehaviour
     {
         get { return currentEquippedItem;  }
         set { if (this.GetCurrentEquippedItemType() != ItemType.EMPTY && value.itemType != ItemType.EMPTY) { ZToDrop.Instance.DropItem(); } OnItemChanged.Invoke(value); currentEquippedItem = value;  }
+    }
+
+    public void dropCurrentItem()
+    {
+        if(this.GetCurrentEquippedItemType() != ItemType.EMPTY)
+            ZToDrop.Instance.DropItem();
     }
 }

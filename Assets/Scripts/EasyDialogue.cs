@@ -8,6 +8,9 @@ public class EasyDialogue : MonoBehaviour
     public Dialogue dialogue;
     public float radius = 1;
     public string name;
+
+    private InteractorShower shower;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -16,17 +19,24 @@ public class EasyDialogue : MonoBehaviour
         npcDialogue.manager.entry = dialogue;
         npcDialogue.rotationSpeed = 0;
         npcDialogue.name = name;
-        var shower = this.gameObject.AddComponent<InteractorShower>();
+        shower = this.gameObject.AddComponent<InteractorShower>();
         shower.radius = radius;
         shower.origin = this.transform;
         shower.letter = 'E';
         shower.toShow = PrefabProvider.instance.uiShower;
         shower.addListener(npcDialogue.onDialogueBegin);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void disable()
+    {
+        shower.disable();
+        this.gameObject.SetActive(false);
     }
 }

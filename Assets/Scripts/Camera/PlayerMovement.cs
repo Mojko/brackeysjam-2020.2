@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
     public float jumpForce = 15;
+    public AudioSource walkAudio;
 
     public Vector3 velocity;
     public Vector3 wew;
@@ -25,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
         this.controller = this.GetComponent<CharacterController>();
         SmoothSlider.OnStartSlide += onSlide;
         BabyTransition.OnMove += (to,prev)=>onSlide(null);
+        walkAudio.mute = false;
+        walkAudio.volume = 0;
     }
 
     private void onSlide(Timestamp timestamp)
@@ -63,7 +66,9 @@ public class PlayerMovement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
-
+        walkAudio.volume = move.magnitude*0.07f;
+        if (!grounded)
+            walkAudio.volume = 0;
        animator.SetBool("walkingUp", z > 0);
        animator.SetBool("walking", isKeyDown);
        /*

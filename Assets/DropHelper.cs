@@ -6,6 +6,14 @@ public class DropHelper : MonoBehaviour
 {
     private static Dictionary<String, GameObject> objs = new Dictionary<String, GameObject>();
 
+    public GameObject[] houses;
+    private static GameObject[] sHouses = new GameObject[1];
+
+    private void Awake()
+    {
+        sHouses = houses;
+    }
+
     public static void registerDropArea(string name, GameObject obj)
     {
         objs[name] = obj;
@@ -13,9 +21,26 @@ public class DropHelper : MonoBehaviour
 
     public static GameObject Drop(GameObject obj)
     {
-        Timestamp stamp = SmoothSlider.Instance.getCurrentTimestamp();
-        print("STAMP" + stamp.timestamp);
-        Transform parent = objs[stamp.timestamp].transform;
+        GameObject activeHouse = null;
+        foreach (var house in sHouses)
+        {
+            if (house.activeSelf) { activeHouse = house;
+                break;
+            }
+        }
+
+        Transform parent;
+        if (activeHouse == null)
+        {
+            Timestamp stamp = SmoothSlider.Instance.getCurrentTimestamp();
+            print("STAMP" + stamp);
+            parent = objs[stamp.timestamp].transform;
+        }
+        else
+        {
+            parent = activeHouse.transform;
+        }
+
         print("PARENT: " + parent);
         return Instantiate(obj, parent);
     }

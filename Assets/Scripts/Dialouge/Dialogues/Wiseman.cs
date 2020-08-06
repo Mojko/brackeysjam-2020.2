@@ -14,10 +14,11 @@ public class Wiseman : Dialogue
 
     protected override async void dialogue()
     {
-        SmoothSlider.Instance.EnableTimestamp(5);
-        SmoothSlider.Instance.EnableTimestamp(4);
-        end();
-        return;
+        //SmoothSlider.Instance.EnableTimestamp(5);
+        //SmoothSlider.Instance.EnableTimestamp(4);
+        //SmoothSlider.Instance.EnableTimestamp(1);
+        //end();
+        //return;
         //await this.showContinue("What are you waiting for. Use the clock on the bottom of the screen to travel to different places in time.");
         //BabyTransition.Instance.Transition();
         //Dialogue.forceQuitActiveDialogue();
@@ -48,7 +49,7 @@ public class Wiseman : Dialogue
                 "You probably wonder how we can stop the apocalypse. I have created a <b>Time machine</b> that will let you <b>rewind</b> time to stop the apocalypse");
             
             await this.showContinue(
-                "You have to gather 8 codes from around different times throughout history and give them to me so I can stop <b>Ekorre Inc</b> from sending the nuclear bombs.");
+                "You have to gather 4 codes from around different times throughout history and give them to me so I can stop <b>Ekorre Inc</b> from sending the nuclear bombs.");
             
             await this.showContinue(
                 "The first code can be found at my old friend <b>Stefan</b> that I knew a long time ago. When you meet him, ask him about the weird numbers.");
