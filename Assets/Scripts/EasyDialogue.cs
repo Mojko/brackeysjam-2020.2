@@ -8,7 +8,7 @@ public class EasyDialogue : MonoBehaviour
     public Dialogue dialogue;
     public float radius = 1;
     public string name;
-
+    public Transform origin;
     private InteractorShower shower;
     
     // Start is called before the first frame update
@@ -21,7 +21,7 @@ public class EasyDialogue : MonoBehaviour
         npcDialogue.name = name;
         shower = this.gameObject.AddComponent<InteractorShower>();
         shower.radius = radius;
-        shower.origin = this.transform;
+        shower.origin = origin != null ? origin : this.transform;
         shower.letter = 'E';
         shower.toShow = PrefabProvider.instance.uiShower;
         shower.addListener(npcDialogue.onDialogueBegin);
