@@ -11,7 +11,7 @@ public class RiverDialogue : Dialogue
     protected override void onStart()
     {
         base.onStart();
-        PlayerSingleton.Instance.CurrentEquippedItem = saw;
+        //PlayerSingleton.Instance.CurrentEquippedItem = saw;
     }
 
     protected override async void dialogue()
