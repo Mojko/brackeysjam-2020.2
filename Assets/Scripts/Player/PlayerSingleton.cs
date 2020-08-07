@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerSingleton : MonoBehaviour
 {
     private static PlayerSingleton instance;
-
+    
     private void Awake()
     {
         instance = this;
@@ -42,7 +42,7 @@ public class PlayerSingleton : MonoBehaviour
     public ItemData CurrentEquippedItem
     {
         get { return currentEquippedItem;  }
-        set { if (this.GetCurrentEquippedItemType() != ItemType.EMPTY && value.itemType != ItemType.EMPTY) { ZToDrop.Instance.DropItem(); } OnItemChanged.Invoke(value); currentEquippedItem = value;  }
+        set { if (this.GetCurrentEquippedItemType() != ItemType.EMPTY && value.itemType != ItemType.EMPTY) { ZToDrop.Instance.DropItem(); } OnItemChanged.Invoke(value); ZToDrop.Instance.playDropAudio(); currentEquippedItem = value;  }
     }
 
     public void dropCurrentItem()

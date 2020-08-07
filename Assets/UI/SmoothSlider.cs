@@ -54,12 +54,14 @@ public class SmoothSlider : MonoBehaviour
             i++;
         }
 
-        this.EnableTimestamp(1);
+        //this.EnableTimestamp(1);
         //this.EnableTimestamp(3);
         this.EnableTimestamp(0);
-        this.EnableTimestamp(3);
+        //this.EnableTimestamp(3);
+        //this.EnableTimestamp(5);
 
         this.SlideToTimestamp(0);
+        //this.SlideToTimestamp(3);
         //this.SlideToTimestamp(1);
         this.doneIntro = true;
     }

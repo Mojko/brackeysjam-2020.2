@@ -20,7 +20,6 @@ public class SpookiDialog : Dialogue
         }
 
         await this.showContinue("Cobweb","Spooki");
-        SmoothSlider.Instance.EnableTimestamp(1);
         end();
     }
 }

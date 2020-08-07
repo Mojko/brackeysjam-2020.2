@@ -61,8 +61,8 @@ public class StartMenuScript : MonoBehaviour
     private IEnumerator waitAnimate()
     {
         yield return new WaitForSecondsRealtime(1f);
-        animateInBlack = true;
         explosion.Play();
+        animateInBlack = true;
     }
 
 }

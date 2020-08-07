@@ -13,10 +13,17 @@ public class ZToDrop : MonoBehaviour
 
     public ItemData emptyItem;
 
+    public AudioSource dropAudio;
+
     private void Start()
     {
         instance = this;
         PlayerSingleton.OnItemChanged += PlayerSingleton_OnItemChanged;
+    }
+
+    public void playDropAudio()
+    {
+        this.dropAudio.Play();
     }
 
     public void DropItem()
@@ -31,6 +38,7 @@ public class ZToDrop : MonoBehaviour
             GameObject go = DropHelper.Drop(PlayerSingleton.Instance.CurrentEquippedItem.objectToSpawnOnGround);
             go.transform.position = PlayerSingleton.Instance.gameObjectInstance.feet.transform.position;
         }
+        playDropAudio();
         PlayerSingleton.Instance.CurrentEquippedItem = emptyItem;
     }
 

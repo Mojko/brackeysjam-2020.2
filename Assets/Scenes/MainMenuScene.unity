@@ -10036,7 +10036,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e015ddbccb8e4954db33723d9b74924d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.165
+  m_Volume: 0.186
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -10044,8 +10044,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 413.58517
+  MaxDistance: 519.51874
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -10095,7 +10095,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.5
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -15478,7 +15478,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0a316b7532a7f664090d86134e383f40, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c659a1b258686724abbed4ea4e154cbe, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.698
   m_Pitch: 1
@@ -15488,7 +15488,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 413.5852
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -15539,7 +15539,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.5
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -15969,7 +15969,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nuke: {fileID: 1844729829}
-  fadeSpeed: 4
+  fadeSpeed: 2
   blackFade: {fileID: 430563104}
   targetColor: {r: 0.6226415, g: 0.1967782, b: 0.1967782, a: 1}
   audioToFade:
@@ -16119,7 +16119,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 82f7f3ef5e9d6024189243aa23bf200e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.737
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -16127,7 +16127,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 413.5852
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -16178,7 +16178,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.5
       inSlope: 0
       outSlope: 0
       tangentMode: 0
