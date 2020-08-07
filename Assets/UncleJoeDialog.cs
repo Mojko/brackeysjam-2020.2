@@ -11,8 +11,8 @@ public class UncleJoeDialog : Dialogue
     {
         if (SmoothSlider.Instance.getCurrentTimestamp().timestamp.Equals("1930"))
         {
-            await this.showContinue("Hey there chap, how's it hanging?");
-            await this.showContinue("I've never seen you around here before? Are you new? Are you the son of my crazy neighbour? no? okay.");
+            await this.showContinue("Hey there chap, how's it hanging, I've never seen you around before, you new? Are you the son of my crazy neighbour? no? okay.");
+            await this.showContinue("I'm Uncle Joe, the uncliest uncle in town, haha funny right...");
             await this.showContinue("I thought you were his son because i have not seen the old man in a few days. Last time i was him was with a bunch of people in black suits.");
             await this.showContinue("The day after he was gone and he had written something weird on my wall.");
             await this.showContinue("What was it? Well it was something like <b>x=3^2 - ???</b>. I can't remember the last letter but i remember seeing it in his house when i was there one day.");
@@ -56,6 +56,15 @@ public class UncleJoeDialog : Dialogue
             }
         }
 
+        await this.showContinue("Hey there chap, how's it hanging, I've never seen you around before, you new?");
+        await this.showContinue("I'm Uncle Joe, the uncliest uncle in town, haha funny right...");
+        await this.showContinue("Oh you're in need of tools? For a squirrel dam? You realise that squirrels don't make dams right haha");
+        await this.showContinue("Fine, I guess, whatever, maybe we can make an arrangement, you know, I live in these forests because I love squirrels");
+        await this.showContinue("I've always wanted a squirrle as a pet, because I don't really have anyone around me like my brother Stefan and my nephew Bob, they're so far away...");
+        await this.showContinue("They also find me pretty annoying with all my uncle jokes... so they don't really want to be around");
+        await this.showContinue("Maybe if you get me a squirrle I can help you out with the tools for your 'squirrle dam' or whatever haha");
+
+        /*
         await this.showContinue("Hey there chap, how's it hanging?");
         await this.showContinue("I've never seen you around here before? Are you new?");
         await this.showContinue("Ah I see, well, let me introduce myself.......... by telling a story");
@@ -86,6 +95,7 @@ public class UncleJoeDialog : Dialogue
         await this.showContinue("That's why I live around these areas you know, because I like the animals so much...");
         await this.showContinue("Could you be friendly and maybe help uncle joe out?");
         await this.showContinue("I'm feeling so down, I feel like I need a cuddle friend, could you get something for me to cuddle with? :(");
+        */
         QuestHelper.Instance.SetText("Cheer Uncle Joe up by finding him a cuddle friend");
         GlobalVariables.ShouldCollectSquirrelForUncleJoe = true;
         end();

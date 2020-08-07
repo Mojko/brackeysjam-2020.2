@@ -73,9 +73,13 @@ public class StefanDialogue : Dialogue
             return;
         }
 
-        await this.showContinue("Wait a sec where did you come from! Eh whatever we don't have time with that. \n\nI don't know who you are but I've been living here alone for 10 years and I've been needing assistance for quite a while");
-        await this.showContinue("You see, we've had a running problem here with SQUIRRLES. \n\nThey block our dams like beavers for some reason and make our water stop flowing");
-        await this.showContinue("Will you be kind to let me know if you find out a way to deal with them?");
+        await this.showContinue("Wait where did you come from! Eh whatever, we have bigger problems on our hands");
+        await this.showContinue("You see, there are SQUIRRELS who block our water supply so that trees can't grow, they act like beavers for some reason");
+        await this.showContinue("In the past we used to have a blacksmith here, I wish it was still around.. they had tools that would let us deal with these situations");
+        //await this.showContinue("Could you have a look around to see if you can find a way to break the blockage? I've heard the blacksmith has some tools");
+        //await this.showContinue("Wait a sec where did you come from! Eh whatever we don't have time with that. \n\nI don't know who you are but I've been living here alone for 10 years and I've been needing assistance for quite a while");
+        //await this.showContinue("You see, we've had a running problem here with SQUIRRLES. \n\nThey block our dams like beavers for some reason and make our water stop flowing");
+        //await this.showContinue("Will you be kind to let me know if you find out a way to deal with them?");
         QuestHelper.Instance.SetText("Find a way to deal with the squirrels for Stefan");
         GlobalVariables.HelpStefan = true;
         end();
