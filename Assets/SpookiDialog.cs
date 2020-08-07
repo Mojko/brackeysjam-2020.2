@@ -9,6 +9,7 @@ public class SpookiDialog : Dialogue
     private static bool hasGottenString = false;
     protected override async void dialogue()
     {
+        this.setAudioProvider(DialogueAudio.nullAudio);
         if (PlayerSingleton.Instance.hasTalkedToBlixtenAfterRats && !hasGottenString)
         {
             await this.showContinue("Cobweb","This looks like something sticky and stringy.");

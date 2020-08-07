@@ -17,6 +17,11 @@ public class Dialogue : MonoBehaviour
     private string npcName;
 
     private Vector3 pos;
+    
+    protected delegate AudioSource AudioMethod();
+
+    private AudioMethod audioProvider = DialogueAudio.randomMaleSound;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +35,11 @@ public class Dialogue : MonoBehaviour
     }
 
 
+    protected void setAudioProvider(AudioMethod method)
+    {
+        this.audioProvider = method;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -42,6 +52,7 @@ public class Dialogue : MonoBehaviour
         callbackWhenDone = action;
         PlayerSingleton.Instance.occupied = true;
         activeDialogue = this;
+        setAudioProvider(DialogueAudio.randomMaleSound);
         dialogue();
     }
 
@@ -78,11 +89,31 @@ public class Dialogue : MonoBehaviour
     }
     protected Task showContinue(string msg)
     {
-        return showContinue(this.npcName, msg);
+        return showContinue(audioProvider != null ? audioProvider():DialogueAudio.randomMaleSound(),this.npcName, msg);
     }
     
-    protected Task showContinue(string name, string msg)
+    protected Task showContinue(AudioSource audio, string msg)
     {
+        return showContinue(audio,this.npcName, msg);
+    }
+    
+    protected Task showContinueNoAudio(string msg)
+    {
+        return showContinue(null,this.npcName, msg);
+    }
+    protected Task showContinueNoAudio(string name,string msg)
+    {
+        return showContinue(null,this.npcName, msg);
+    }
+    protected Task showContinue(string name,string msg)
+    {
+        return showContinue(audioProvider != null ? audioProvider():DialogueAudio.randomMaleSound(),this.npcName, msg);
+    }
+    
+    protected Task showContinue(AudioSource audioSource, string name, string msg)
+    {
+        if(audioSource != null)
+            audioSource.Play();
         TaskCompletionSource<bool> tcs1 = new TaskCompletionSource<bool>();
         if (Dialogue.activeDialogue == null)
         {

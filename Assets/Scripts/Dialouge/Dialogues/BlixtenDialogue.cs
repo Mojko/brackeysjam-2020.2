@@ -6,13 +6,14 @@ public class BlixtenDialogue : Dialogue
 {
 
     public ItemData cat;
-    
+
+    public AudioSource hiss, meow;
     // Start is called before the first frame update
     protected override async void dialogue()
     {
         if (PlayerSingleton.Instance.GetCurrentEquippedItemType() == ItemType.COBWEB)
         {
-            await this.showContinue("Meow");
+            await this.showContinue(meow,"Meow");
             PlayerSingleton.Instance.CurrentEquippedItem = PlayerSingleton.Instance.emptyItem;
             PlayerSingleton.Instance.CurrentEquippedItem = cat;
             this.GetComponent<InteractorShower>().disable();
@@ -24,14 +25,14 @@ public class BlixtenDialogue : Dialogue
 
         if (PlayerSingleton.Instance.talkedToRats)
         {
-            await this.showContinue("Hiss");
+            await this.showContinue(hiss,"Hiss");
             QuestHelper.Instance.SetText("Find a way to befriend Blixten");
             PlayerSingleton.Instance.hasTalkedToBlixtenAfterRats = true;
             end();
             return;
         }
 
-        await this.showContinue("Hiss");
+        await this.showContinue(hiss,"Hiss");
         end();
         return;
     }

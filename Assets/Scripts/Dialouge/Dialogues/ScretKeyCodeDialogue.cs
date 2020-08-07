@@ -11,6 +11,7 @@ public class ScretKeyCodeDialogue : Dialogue
     
     protected override async void dialogue()
     {
+        this.setAudioProvider(DialogueAudio.nullAudio);
         if (showedOpenText)
         {
             await this.showContinue("Engineers last note","<b>Ekorre INC</b> is trying to take over the world. The number <b>4</b> on the wall and the value of x=<b>5</b> is important for them and dont want anyone to know about it.");

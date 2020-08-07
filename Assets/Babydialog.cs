@@ -8,6 +8,7 @@ public class Babydialog : Dialogue
 
     protected override async void dialogue()
     {
+        this.setAudioProvider(DialogueAudio.randomBabySound);
         if(has_talked)
         {
             if (Puzzle_1.Instance.nuts[0].name.StartsWith("s") &&

@@ -16,6 +16,7 @@ public class RiverDialogue : Dialogue
 
     protected override async void dialogue()
     {
+        this.setAudioProvider(DialogueAudio.nullAudio);
         var type = PlayerSingleton.Instance.GetCurrentEquippedItemType();
         if (type == ItemType.EMPTY)
         {
