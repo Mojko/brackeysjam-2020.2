@@ -18,7 +18,10 @@ public class StartMenuScript : MonoBehaviour
     private float target = 1;
 
     public Color targetColor;
-    
+
+    public AudioSource[] audioToFade;
+
+    public AudioSource explosion;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,10 +33,13 @@ public class StartMenuScript : MonoBehaviour
     {
         if (animateInBlack)
         {
+            foreach (var audio in audioToFade)
+            {
+                audio.volume = Mathf.Lerp(audio.volume, 0, Time.deltaTime * fadeSpeed * 1.5f);
+            }
             blackFade.color = Color.Lerp(blackFade.color, targetColor, Time.deltaTime * fadeSpeed);
             if (blackFade.color.a > 0.99)
             {
-                print("GO TO NEW SCENE");
                 SceneManager.LoadScene("PlayerTestScene");
                 animateInBlack = false;
             }
@@ -56,6 +62,7 @@ public class StartMenuScript : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(1f);
         animateInBlack = true;
+        explosion.Play();
     }
 
 }

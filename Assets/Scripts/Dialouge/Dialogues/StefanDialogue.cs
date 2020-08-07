@@ -57,7 +57,7 @@ public class StefanDialogue : Dialogue
             QuestHelper.Instance.SetText("");
             await this.showContinue("You got rid of the squirrel dam? Thank you so much!");
             await this.showContinue("Let me invite you into my house!"); 
-            SmoothSlider.Instance.gameObject.SetActive(false);
+            SmoothSlider.Instance.gameObject.transform.parent.gameObject.SetActive(false);
             insideHouse = true;
             end();
             this.transform.parent = newParent;

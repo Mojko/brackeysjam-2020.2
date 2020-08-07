@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
     public float jumpForce = 15;
     public AudioSource walkAudio;
-
+    public AudioSource teleportAudio;
     public Vector3 velocity;
     public Vector3 wew;
     private bool grounded = false;
@@ -33,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
     private void onSlide(Timestamp timestamp)
     {
         animator.SetTrigger("Teleport");
+        teleportAudio.Play();
         //teleportAnimator.SetBool("teleport",true);
     }
 

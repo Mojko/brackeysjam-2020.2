@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BlockedEntranceDialogue : Dialogue
 {
-
+    public AudioSource breakAudio;
     public Collider entranceCollider;
 
     protected override void onStart()
@@ -22,6 +22,7 @@ public class BlockedEntranceDialogue : Dialogue
         }
         else if(type == ItemType.SAW)
         {
+            breakAudio.Play();
             QuestHelper.Instance.SetText("");
             this.gameObject.GetComponent<InteractorShower>().disable();
             entranceCollider.gameObject.SetActive(true);
