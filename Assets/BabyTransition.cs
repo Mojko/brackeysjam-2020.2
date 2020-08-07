@@ -33,17 +33,17 @@ public class BabyTransition : MonoBehaviour
 
     public void Transition()
     {
+        ZToDrop.DisableDrop();
         oldPlayerPos = PlayerSingleton.Instance.gameObjectInstance.transform.position;
         isInBabyWorld = true;
-        OnMove.Invoke(false,null);
-        StartCoroutine(moveToBabyScene());
         isInsideStefan = stefansHouse.activeSelf;
-        stefansHouse.SetActive(false);            
-    }
+        OnMove.Invoke(false,null);
+        StartCoroutine(moveToBabyScene()); }
 
     IEnumerator moveToBabyScene()
     {
         yield return new WaitForSeconds(0.20f);
+        stefansHouse.SetActive(false);   
         SliderUI.SetActive(false);
         PlayerSingleton.Instance.gameObjectInstance.ChangePosition(BabyScene.Instance.location.transform.position);
         prevEnt = TimestampEntity.getEntity(SmoothSlider.Instance.getCurrentTimestamp().timestamp);
@@ -63,12 +63,12 @@ public class BabyTransition : MonoBehaviour
     {
         yield return new WaitForSeconds(0.20f);
         PlayerSingleton.Instance.gameObjectInstance.ChangePosition(oldPlayerPos);
+        ZToDrop.EnableDrop();
         if(isInsideStefan)
             stefansHouse.SetActive(true);
         else
             SliderUI.SetActive(true);
         OnBabyTransition.Invoke(false,isInsideStefan ? null : prevEnt.gameObject);
-        SmoothSlider.Instance.EnableTimestamp(4);
         prevEnt = null;
     }
 

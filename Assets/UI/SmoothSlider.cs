@@ -55,7 +55,8 @@ public class SmoothSlider : MonoBehaviour
         }
 
         //this.EnableTimestamp(1);
-        //this.EnableTimestamp(3);
+        //this.EnableTimestamp(2);
+        //this.EnableTimestamp(4);
         this.EnableTimestamp(0);
         //this.EnableTimestamp(3);
         //this.EnableTimestamp(5);

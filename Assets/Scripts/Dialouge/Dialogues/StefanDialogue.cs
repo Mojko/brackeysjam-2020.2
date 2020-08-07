@@ -48,7 +48,8 @@ public class StefanDialogue : Dialogue
                     "There was also an equation beside it. From what i remember it started with 2x*2... but the rest i cant remember. Maybe it was important or something. I dont know, i'm just a farmer.");
                 end();
                 hasTalkedAboutNumbers = true;
-                await Task.Delay(2000);
+                PlayerSingleton.Instance.hasTalkedToStefanInsideHouse = true;
+                await Task.Delay(200);
                 BabyTransition.Instance.Transition();
                 await Task.Delay(2000);
                 babyDialogue.onDialogueBegin();

@@ -10,7 +10,8 @@ public class CodeSolver : MonoBehaviour
     public GameObject text2;
     public GameObject window;
     public NpcDialogue safeDialogue;
-    
+    public AudioSource enteringKeyCode, wrong, correct;
+
     
     private TextMeshProUGUI textM;
     private TextMeshProUGUI textTtile;
@@ -31,9 +32,12 @@ public class CodeSolver : MonoBehaviour
 
         if(textM.text.Equals(GlobalVariables.safeKeyCode))
         {
+            correct.Play();
+            this.isOn = false;
             GameObject.FindGameObjectWithTag("SafeCodeDialogue").gameObject.SetActive(false);
             PlayerSingleton.Instance.hasSolvedSafe = true;
             safeDialogue.onDialogueBegin();
+            return;
         }
 
         if (PlayerSingleton.Instance.gameObjectInstance.GetComponent<PlayerMovement>().wew.magnitude > 0.1f)
@@ -45,6 +49,7 @@ public class CodeSolver : MonoBehaviour
             window.SetActive(false);
             this.text.GetComponent<TextMeshProUGUI>().text = "";
             textTtile.text = "Insert code";
+            return;
         }
 
         if (Input.GetKeyDown(KeyCode.Backspace))
@@ -54,6 +59,7 @@ public class CodeSolver : MonoBehaviour
 
         if (textM.text.Length >= 4)
         {
+            wrong.Play();
             textTtile.text = "Wrong Code";
             textM.text = "";
             return;
@@ -110,9 +116,12 @@ public class CodeSolver : MonoBehaviour
         {
             textM.text += "9";
         }
-        
-        if(textM.text.Length != length)
+
+        if (textM.text.Length != length)
+        {
             textTtile.text = "Insert code";
+            enteringKeyCode.Play();
+        }
     }
 
     public void OnActivate()

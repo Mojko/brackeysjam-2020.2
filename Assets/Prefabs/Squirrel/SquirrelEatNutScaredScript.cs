@@ -8,7 +8,7 @@ public class SquirrelEatNutScaredScript : MonoBehaviour
     public GameObject nutToSpawn;
     public GameObject nutInHandToDissapear;
     public float speed = 1f;
-
+    public AudioSource rustle;
     private bool run;
     private float runScaler = 1f;
     private float originalJumpInterval;
@@ -29,6 +29,7 @@ public class SquirrelEatNutScaredScript : MonoBehaviour
             if(run == false)
             {
                 run = true;
+                rustle.Play();
                 this.GetComponent<Squirrel>().startJumpInterval = 0.01f;
                 this.GetComponent<Squirrel>().jumpInterval = 0.01f;
                 this.GetComponent<Squirrel>().jumpHeight = 0.025f;

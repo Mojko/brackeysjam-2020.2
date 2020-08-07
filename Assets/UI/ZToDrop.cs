@@ -15,6 +15,8 @@ public class ZToDrop : MonoBehaviour
 
     public AudioSource dropAudio;
 
+    private bool disabled = false;
+
     private void Start()
     {
         instance = this;
@@ -44,7 +46,7 @@ public class ZToDrop : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Z))
+        if(Input.GetKeyDown(KeyCode.Z) && !disabled)
         {
             DropItem();
         }
@@ -60,5 +62,15 @@ public class ZToDrop : MonoBehaviour
         {
             this.gameObject.GetComponent<TextMeshProUGUI>().enabled = true;
         }
+    }
+
+    public static void DisableDrop()
+    {
+        instance.disabled = true;
+    }
+    
+    public static void EnableDrop()
+    {
+        instance.disabled = false;
     }
 }

@@ -33,6 +33,7 @@ public class PlayerSingleton : MonoBehaviour
     public bool talkedToRats = false;
     public bool hasTalkedToBlixtenAfterRats  =false;
     public bool hasTalkedToNukeNote = false;
+    public bool hasTalkedToStefanInsideHouse;
 
     public ItemType GetCurrentEquippedItemType()
     {

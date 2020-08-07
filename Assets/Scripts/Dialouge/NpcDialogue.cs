@@ -57,7 +57,6 @@ public class NpcDialogue : MonoBehaviour
     {
         if (inDialogue) return;
         inDialogue = true;
-        print("BEGINNING DIALOGUE");
         manager.showDialogue(name,() =>
         {
             inDialogue = false;

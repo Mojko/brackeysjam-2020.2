@@ -12,6 +12,8 @@ public class FADE_IN : MonoBehaviour
     public float speed = 2;
     public bool fadeOut = false;
 
+    public AudioSource[] sourcesToFade;
+    
     private bool fading = false;
     private void Start()
     {
@@ -37,8 +39,14 @@ public class FADE_IN : MonoBehaviour
             else
             {
                 if (img.color.a < 0.97f)
+                {
                     img.color = Color.Lerp(img.color, fadeIntarget,
                         Time.deltaTime * speed);
+                    foreach (var audio in sourcesToFade)
+                    {
+                        audio.volume = Mathf.Lerp(audio.volume, 0, Time.deltaTime * speed);
+                    }
+                }
                 else
                     SceneManager.LoadScene("Jesper_CreditsScene");   
             }

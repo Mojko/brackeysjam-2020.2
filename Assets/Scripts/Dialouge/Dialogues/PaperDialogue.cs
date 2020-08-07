@@ -6,6 +6,7 @@ public class PaperDialogue : Dialogue
 {
     protected override async void dialogue()
     {
+        this.setAudioProvider(DialogueAudio.nullAudio);
         await this.showContinue("Note 324.3\n\nThe house is rat infested. We need to fix that.");
         await this.showContinue("Anyways... We are almost finished creating the most powerful bomb ever created.");
         await this.showContinue("This bomb (model 1945, v.16jun) will make <b>Ekorre INC</b> The most powerful company in the world. No one would even try to compete, we will just send the bomb to their headquarters. HAHAHA");

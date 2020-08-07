@@ -9,6 +9,8 @@ public class BombDefuseDialog : MonoBehaviour
     public GameObject text2;
     public GameObject window;
 
+    public AudioSource enteringKeyCode, wrong, correct;
+    
     private bool isOn;
 
     private TextMeshProUGUI textM;
@@ -30,10 +32,12 @@ public class BombDefuseDialog : MonoBehaviour
 
         if(textM.text.Equals(GlobalVariables.KeyCode))
         {
+            correct.Play();
             CameraFadeout.Instance.FadeOut();
             PlayerSingleton.Instance.CanPlayerMove = false;
             GameObject.FindGameObjectWithTag("UI_JESPER").gameObject.SetActive(false);
             GameObject.FindGameObjectWithTag("DialogueCanvas").gameObject.SetActive(false);
+            return;
         }
 
         if (PlayerSingleton.Instance.gameObjectInstance.GetComponent<PlayerMovement>().wew.magnitude > 0.1f)
@@ -44,6 +48,7 @@ public class BombDefuseDialog : MonoBehaviour
             text2.SetActive(false);
             window.SetActive(false);
             textM.text = "";
+            return;
         }
 
         if (Input.GetKeyDown(KeyCode.Backspace))
@@ -53,6 +58,7 @@ public class BombDefuseDialog : MonoBehaviour
 
         if (textM.text.Length >= 4)
         {
+            wrong.Play();
             textTtile.text = "Wrong Code";
             textM.text = "";
             return;
@@ -109,9 +115,12 @@ public class BombDefuseDialog : MonoBehaviour
         {
             textM.text += "9";
         }
-        
-        if(textM.text.Length != length)
+
+        if (textM.text.Length != length)
+        {
+            enteringKeyCode.Play();
             textTtile.text = "Insert code";
+        }
     }
 
     public void OnActivate()
