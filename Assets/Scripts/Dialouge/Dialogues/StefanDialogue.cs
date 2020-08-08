@@ -17,6 +17,8 @@ public class StefanDialogue : Dialogue
     public Transform newParent;
     
     private bool insideHouse = false;
+
+    public static bool teleporting_to_time_baby;
     
     protected override async void dialogue()
     {
@@ -39,6 +41,11 @@ public class StefanDialogue : Dialogue
 
             if (insideHouse)
             {
+                if(teleporting_to_time_baby)
+                {
+                    end();
+                    return;
+                }
                 await this.showContinue("It ain't much but it's honest work.");
                 await this.showContinue("The weird color on the wall? Ye I don't have time to fix that. It was from the old owner.");
                 await this.showContinue("There was an old man living in this house before i moved in. The realtor said he was a former engineer at Ekorre Inc.");
@@ -49,6 +56,7 @@ public class StefanDialogue : Dialogue
                 end();
                 hasTalkedAboutNumbers = true;
                 PlayerSingleton.Instance.hasTalkedToStefanInsideHouse = true;
+                teleporting_to_time_baby = true;
                 await Task.Delay(200);
                 BabyTransition.Instance.Transition();
                 await Task.Delay(2000);

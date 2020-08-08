@@ -37,6 +37,7 @@ public class Babydialog : Dialogue
         await this.showContinue("Therefor, you need to complete my puzzle in order to show your worth, that you are able to keep these powers given");
         await this.showContinue("Rearrange the nuts to form a word, if you rearrange them correctly, come back to me");
         has_talked = true;
+        StefanDialogue.teleporting_to_time_baby = false;
         end();
     }
 }

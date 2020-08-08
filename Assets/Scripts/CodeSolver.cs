@@ -30,6 +30,20 @@ public class CodeSolver : MonoBehaviour
             return;
         }
 
+        int a = 0;
+        if(int.TryParse(textM.text, out a))
+        {
+            if(a == int.Parse(GlobalVariables.safeKeyCode))
+            {
+                correct.Play();
+                this.isOn = false;
+                GameObject.FindGameObjectWithTag("SafeCodeDialogue").gameObject.SetActive(false);
+                PlayerSingleton.Instance.hasSolvedSafe = true;
+                safeDialogue.onDialogueBegin();
+                return;
+            }
+        }
+
         if(textM.text.Equals(GlobalVariables.safeKeyCode))
         {
             correct.Play();

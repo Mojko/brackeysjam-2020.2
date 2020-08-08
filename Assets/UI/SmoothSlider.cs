@@ -79,13 +79,19 @@ public class SmoothSlider : MonoBehaviour
 
     private int GetClosestTimestampToPosition(Vector2 position)
     {
+
         var min_diff = new Vector2(float.MaxValue, float.MaxValue);
         int index = 0;
         int result_index = 0;
 
         foreach (var timestamp in timestamps)
         {
-            if(timestamp.gameObject.activeInHierarchy == false)
+            if (timestamp.rectTransform == null)
+            {
+                return 1;
+            }
+            
+            if (timestamp.gameObject.activeInHierarchy == false)
             {
                 continue;
             }

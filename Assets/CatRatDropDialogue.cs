@@ -36,6 +36,7 @@ public class CatRatDropDialogue : MonoBehaviour
             colliderToEnable.gameObject.SetActive(true);
             ratTalk.disable();
             //TODO: start animation and remove rats.
+            QuestHelper.Instance.SetText("");
         }
         else if (inside && PlayerSingleton.Instance.GetCurrentEquippedItemType() != ItemType.CAT && PlayerUI.activeSelf)
         {

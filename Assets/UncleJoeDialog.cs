@@ -25,8 +25,7 @@ public class UncleJoeDialog : Dialogue
             if(!hasFoundSquirrel && PlayerSingleton.Instance.GetCurrentEquippedItemType() == ItemType.SQUIRRLE)
             {
                 await this.showContinue("Yaaay a furry friend! Thank you so much kind stranger");
-                await this.showContinue("I wish I could pay you back somehow..");
-                await this.showContinue("What's that? You need a saw? Well sure! I have plenty, there should be one in the back");
+                await this.showContinue("Oh right you needed a saw right? There is one in the back");
                 PlayerSingleton.Instance.CurrentEquippedItem = PlayerSingleton.Instance.emptyItem;
 
                 var go = DropHelper.Drop(ObjectSpawnHelper.Instance.saw);
@@ -44,7 +43,7 @@ public class UncleJoeDialog : Dialogue
             {
                 if (hasFoundSquirrel)
                 {
-                    await this.showContinue("Tanks for the squirrel. The saw is in the back.");
+                    await this.showContinue("Thanks for the squirrel. The saw is in the back.");
                 }
                 else
                 {
@@ -60,9 +59,9 @@ public class UncleJoeDialog : Dialogue
         await this.showContinue("I'm Uncle Joe, the uncliest uncle in town, haha funny right...");
         await this.showContinue("Oh you're in need of tools? For a squirrel dam? You realise that squirrels don't make dams right haha");
         await this.showContinue("Fine, I guess, whatever, maybe we can make an arrangement, you know, I live in these forests because I love squirrels");
-        await this.showContinue("I've always wanted a squirrle as a pet, because I don't really have anyone around me like my brother Stefan and my nephew Bob, they're so far away...");
+        await this.showContinue("I've always wanted a pet, because I don't really have anyone around me like my brother Stefan and my nephew Bob, they're so far away...");
         await this.showContinue("They also find me pretty annoying with all my uncle jokes... so they don't really want to be around");
-        await this.showContinue("Maybe if you get me a squirrle I can help you out with the tools for your 'squirrle dam' or whatever haha");
+        await this.showContinue("Maybe if you get me a pet I can help you out with the tools for your 'squirrle dam' or whatever haha");
 
         /*
         await this.showContinue("Hey there chap, how's it hanging?");
