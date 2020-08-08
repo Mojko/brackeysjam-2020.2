@@ -23,7 +23,6 @@ public class TimeBoxPositionFixer : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         if (!other.gameObject.name.Equals("Player")) return;
-        print("HERE DUDEDSFGSDFGHBDXFG");
         other.gameObject.GetComponent<CharacterController>().enabled = false;
         other.gameObject.transform.position = teleportTo.position;
         other.gameObject.GetComponent<CharacterController>().enabled = true;

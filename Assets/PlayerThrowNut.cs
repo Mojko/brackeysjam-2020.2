@@ -83,22 +83,26 @@ public class PlayerThrowNut : MonoBehaviour
             return;
         }
 
-        if(collision.gameObject.name == nutThrowingTrigger.name)
-        {
-            interactableObjectInstance.SetActive(true);
-            entered = true;
 
-            throwNutTextInstance.SetActive(true);
-        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.name == nutThrowingTrigger.name)
-        {
-            interactableObjectInstance.SetActive(false);
-            throwNutTextInstance.SetActive(false);
-            entered = false;
-        }
+
+    }
+
+    public void onEnter()
+    {
+        interactableObjectInstance.SetActive(true);
+        entered = true;
+
+        throwNutTextInstance.SetActive(true);
+    }
+
+    public void onExit()
+    {
+        interactableObjectInstance.SetActive(false);
+        throwNutTextInstance.SetActive(false);
+        entered = false;
     }
 }

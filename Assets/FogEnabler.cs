@@ -67,7 +67,6 @@ public class FogEnabler : MonoBehaviour
         target = RenderSettings.fogColor;
         targetDensity = fogDensityTarget;
         animate = true;
-        print("IM HERE");
         inside = true;
     }
 
@@ -85,7 +84,6 @@ public class FogEnabler : MonoBehaviour
         if (inside) return;
         if (!other.gameObject.name.Equals("Player")) return;
         OnTriggerEnter(other);
-        print("IM HERE DUDE");
     }
 
 

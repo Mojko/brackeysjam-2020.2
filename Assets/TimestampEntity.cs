@@ -48,7 +48,6 @@ public class TimestampEntity : MonoBehaviour
         }
         else
         {
-            print("setting to inactive:"+ myTime);
             this.gameObject.SetActive(false);
         }
     }

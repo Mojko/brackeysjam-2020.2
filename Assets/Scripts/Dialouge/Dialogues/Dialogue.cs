@@ -21,6 +21,8 @@ public class Dialogue : MonoBehaviour
     protected delegate AudioSource AudioMethod();
 
     private AudioMethod audioProvider = DialogueAudio.randomMaleSound;
+
+    protected bool disabled = false;
     
     // Start is called before the first frame update
     void Start()
@@ -29,6 +31,7 @@ public class Dialogue : MonoBehaviour
         continuePrefab = DialogueCanvasManager.instance.getContinue();
         onStart();
     }
+    
 
     protected virtual void onStart()
     {
@@ -48,6 +51,12 @@ public class Dialogue : MonoBehaviour
 
     public virtual void setupDialogue(string npcName, Action action)
     {
+        if (disabled)
+        {
+            action();
+            return;
+        }
+
         this.npcName = npcName;
         callbackWhenDone = action;
         PlayerSingleton.Instance.occupied = true;
@@ -107,7 +116,7 @@ public class Dialogue : MonoBehaviour
     }
     protected Task showContinue(string name,string msg)
     {
-        return showContinue(audioProvider != null ? audioProvider():DialogueAudio.randomMaleSound(),this.npcName, msg);
+        return showContinue(audioProvider != null ? audioProvider():DialogueAudio.randomMaleSound(),name, msg);
     }
     
     protected Task showContinue(AudioSource audioSource, string name, string msg)

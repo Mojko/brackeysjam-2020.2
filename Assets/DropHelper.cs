@@ -33,7 +33,6 @@ public class DropHelper : MonoBehaviour
         if (activeHouse == null)
         {
             Timestamp stamp = SmoothSlider.Instance.getCurrentTimestamp();
-            print("STAMP" + stamp);
             parent = objs[stamp.timestamp].transform;
         }
         else
@@ -41,7 +40,6 @@ public class DropHelper : MonoBehaviour
             parent = activeHouse.transform;
         }
 
-        print("PARENT: " + parent);
         return Instantiate(obj, parent);
     }
 

@@ -8,6 +8,8 @@ public class Puzzle_1 : MonoBehaviour
     public static Puzzle_1 Instance => instance;
     public GameObject[] nuts;
 
+    public AudioSource move, place;
+    
     private GameObject nut_1;
     private GameObject nut_2;
 
@@ -40,7 +42,6 @@ public class Puzzle_1 : MonoBehaviour
         if(swap_timer > 0.5f && swap_timer <= 1f)
         {
             Vector3 temp = nut_2.GetComponent<InteractorShower>().origin.transform.position;
-
             nut_2.GetComponent<NutSwap>().LerpToPosition(wew_1);
             nut_1.GetComponent<NutSwap>().LerpToPosition(wew_2);
         }
@@ -61,7 +62,6 @@ public class Puzzle_1 : MonoBehaviour
                 n.GetComponent<InteractorShower>().enabled = true;
             }
 
-            Debug.Log(index_1 + ", " + index_2);
 
             var temp = this.nuts[index_2];
             this.nuts[index_2] = this.nuts[index_1];
@@ -76,6 +76,7 @@ public class Puzzle_1 : MonoBehaviour
 
     public void OnNutSelect(GameObject nut)
     {
+        move.Play();
         if(isSwapping)
         {
             return;
@@ -112,6 +113,7 @@ public class Puzzle_1 : MonoBehaviour
             nut.GetComponent<NutSwap>().LerpToPosition(nut.GetComponent<InteractorShower>().origin.transform.position);
 
             isSwapping = true;
+            place.Play();
             nut_2 = nut;
             wew_2 = nut.GetComponent<InteractorShower>().origin.transform.position;
             foreach (var n in nuts)

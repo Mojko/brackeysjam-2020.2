@@ -17,7 +17,7 @@ public class StefanDialogue : Dialogue
     public Transform newParent;
     
     private bool insideHouse = false;
-
+    
     public static bool teleporting_to_time_baby;
     
     protected override async void dialogue()
@@ -53,14 +53,15 @@ public class StefanDialogue : Dialogue
                     "When i moved in there were a bunch of weird number and equations on the wall. All i remembered is that there was a big <b>4</b> in the middle of the wall...");
                 await this.showContinue(
                     "There was also an equation beside it. From what i remember it started with 2x*2... but the rest i cant remember. Maybe it was important or something. I dont know, i'm just a farmer.");
-                end();
+                disabled = true;
                 hasTalkedAboutNumbers = true;
                 PlayerSingleton.Instance.hasTalkedToStefanInsideHouse = true;
                 teleporting_to_time_baby = true;
-                await Task.Delay(200);
                 BabyTransition.Instance.Transition();
+                end();
                 await Task.Delay(2000);
                 babyDialogue.onDialogueBegin();
+                disabled = false;
                 return;
             }
             QuestHelper.Instance.SetText("");

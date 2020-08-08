@@ -20,9 +20,7 @@ public class Bobbing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(this.name);
         a += Time.deltaTime*10;
-        print("A" + a + " | " + (float) (orgPos.y+Math.Sin(a)*bobStrength));
         this.transform.position.Set(orgPos.x,(float) (orgPos.y+Math.Sin(a)*bobStrength),orgPos.z);
     }
 }

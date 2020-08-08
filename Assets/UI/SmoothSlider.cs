@@ -146,7 +146,6 @@ public class SmoothSlider : MonoBehaviour
                 return;
             }
         }
-        print("here" + PlayerSingleton.Instance);
         if (PlayerSingleton.Instance.occupied) return;
         OnStartSlide?.Invoke(this.timestamps[this.slideIndex]);
         StartCoroutine(waitForEnimation(index));
@@ -161,7 +160,6 @@ public class SmoothSlider : MonoBehaviour
 
     public void EnableTimestamp(int index)
     {
-        Debug.Log(this.timestamps[index]);
         this.timestamps[index].gameObject.SetActive(true);
         this.timestamps[index].PlayAnimation();
     }
